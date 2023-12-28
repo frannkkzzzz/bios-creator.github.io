@@ -1,0 +1,191 @@
+---
+layout: page
+title: Contact | BiosCreator
+permalink: /contact/
+heading: Get in touch today
+description: We'd love to help you improve your repair success rate.
+
+map:
+  latitude: 120.96648
+  longitude: 15.48586
+  address: "Cabanatuan City, Nueva Ecija, Philippines"
+  zoom: 13
+---
+
+
+<!-- contact form start -->
+<section id="contact-form" onload="GetGeoInfo()">
+  <div class="container">
+    <div class="container" style="text-align:center; margin-bottom:50px;">
+      <h2 class="contact-today">Get in touch today</h2>
+      <p class="contact-rate">We'd love to help you increase your repair success rate.</p>
+    </div>
+
+  <div class="contact-box">
+    <form action="" method="post" name="contact" class="contact-form" id="bioscreator">
+
+      <div class="row form-group">
+        <div class="col-md-12">
+          <div class="f-name">
+            <label class="text-black contact-label" for="fullname">Full Name</label>
+          </div>
+            <input type="text" id="full_name" name="full_name" class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-12">
+          <div class="f-name">
+            <label class="text-black contact-label" for="email">Email</label>
+          </div>
+            <input type="email" id="email" name="email" class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-7">
+         <div class="f-name">
+           <label class="text-black contact-label" for="subject">Phone Number</label>
+         </div>
+         <div class="tel-verify">
+          <input id="phone" type="tel" name="phone" class="form-control f-phone"/>
+      <!-- <input id="btn-verify" type="submit" class="btn" value="Verify" style="float:right;"/> -->
+        </div>
+        </div>
+      </div>
+
+      <!-- hidden -->
+      <input type="hidden" id="city" name="city" class="form-control">
+      <input type="hidden" id="country" name="country" class="form-control">
+      <input type="hidden" id="postal" name="postal" class="form-control">
+
+    </form>
+        <button class="sub-btn" onclick="SubForm()">Submit</button>
+    </div>
+
+
+    <div id="contact-box" class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="block">
+          <h2>Stop By For A visit</h2>
+          <ul class="address-block">
+            <li>
+              <i class="fa fa-map-marker"></i><address><a target="_blank" href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{{ page.map.address | replace: ", ", ", <br>" }}</a></address>
+            </li>
+            <li>
+              <a href="mailto:cs@example.com"><i class="fa fa-envelope-o"></i>Email: support@bioscreator.com</a>
+            </li>
+            <li>
+              <i class="fa fa-phone"></i>Phone:
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="block">
+          <h2>We Also Count In Google Map</h2>
+          <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=vera equinox&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://mcpenation.com/">https://mcpenation.com</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+  <script>
+  // fetch info from their ip address to spreadsheet using geogetinfo
+
+   GetGeoInfo();
+
+   async function GetGeoInfo(){
+      fetchText().then(function(value) {
+        displayResult(value);
+      })
+   }
+
+   function displayResult(value){
+     document.getElementById('city').value = value.city;
+     document.getElementById('postal').value = value.postal;
+     document.getElementById('country').value = value.country;
+   }
+
+   // end
+
+//for phone input of contact form(intelinput and jquery mask)
+ function getIp(callback) {
+ fetch('https://ipinfo.io/210.23.187.171/json?token=bf1eedb09dfc46', { headers: { 'Accept': 'application/json' }})
+   .then((resp) => resp.json())
+   .catch(() => {
+     return {
+       country: 'us',
+     };
+   })
+   .then((resp) => callback(resp.country));
+}
+
+// initial country - auto and input mask
+// Make sure to place this snippet in the footer or at least after
+// the HTML input we're targeting.
+
+$(document).ready(function() {
+  var phoneInputID = "#phone";
+  var input = document.querySelector(phoneInputID);
+  var iti = window.intlTelInput(input, {
+    // allowDropdown: false,
+    // autoHideDialCode: false,
+    // autoPlaceholder: "off",
+    // dropdownContainer: document.body,
+    // excludeCountries: ["us"],
+    formatOnDisplay: true,
+    geoIpLookup: function(callback) {
+      $.get("https://ipinfo.io/210.23.187.171/json?token=bf1eedb09dfc46", function() {}, "jsonp").always(function(resp) {
+        var countryCode = (resp && resp.country) ? resp.country : "";
+        callback(countryCode);
+      });
+    },
+    hiddenInput: "full_number",
+    initialCountry: "auto",
+    // localizedCountries: { 'de': 'Deutschland' },
+    // nationalMode: false,
+    // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+    // placeholderNumberType: "MOBILE",
+    preferredCountries: ['es'],
+    // separateDialCode: true,
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js"
+  });
+
+
+  $(phoneInputID).on("countrychange", function(event) {
+
+    // Get the selected country data to know which country is selected.
+    var selectedCountryData = iti.getSelectedCountryData();
+
+    // Get an example number for the selected country to use as placeholder.
+    newPlaceholder = intlTelInputUtils.getExampleNumber(selectedCountryData.iso2, true, intlTelInputUtils.numberFormat.INTERNATIONAL),
+
+      // Reset the phone number input.
+      iti.setNumber("");
+
+    // Convert placeholder as exploitable mask by replacing all 1-9 numbers with 0s
+    mask = newPlaceholder.replace(/[1-9]/g, "0");
+
+    // Apply the new mask for the input
+    $(this).mask(mask);
+  });
+
+
+  // When the plugin loads for the first time, we have to trigger the "countrychange" event manually,
+  // but after making sure that the plugin is fully loaded by associating handler to the promise of the
+  // plugin instance.
+
+  iti.promise.then(function() {
+    $(phoneInputID).trigger("countrychange");
+  });
+
+});
+
+function isNotEmpty(value) {
+ if (value == null || typeof value == 'undefined' ) return false;
+ return (value.length > 0);
+}
+ </script>

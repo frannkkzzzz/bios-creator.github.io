@@ -1,0 +1,1837 @@
+/*		Default Layout: 992px.
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+@media only screen and (min-width: 280px) and (max-width: 359px){
+  #logo{
+    width: 210px;
+    object-fit: contain;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 24px 10px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+    padding: 5px 5px;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 24px;
+  }
+  #slider .block p{
+    font-size: 13px;
+  }
+  .button a{
+    margin: 0px 10%;
+    color: #fff;
+    width: 10%;
+    padding: 16px 28px;
+  }
+  .dashboard{
+    width: 103%;
+    margin: 10px -1%;
+  }
+  .section-title p{
+    font-size: 13px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 24px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    max-width: 85%;
+    max-height: 400px;
+    margin: 8%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 24px;
+  }
+  #icon{
+    position: absolute;
+    width: 25px;
+    cursor: pointer;
+    top: 267px;
+    right: 130px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 24px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 13px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 24px;
+  }
+  .pricing-p{
+    font-size: 16px;
+  }
+  .join{
+    font-size: 24px;
+  }
+  .join-us{
+    font-size: 16px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn{
+    margin: 30px 80px;
+  }
+  .contact-today{
+    font-size: 24px;
+  }
+  .contact-rate{
+    font-size: 16px;
+  }
+  #contact-box .block h2{
+    font-size: 16px;
+  }
+  .pricing-faq{
+    font-size: 24px;
+  }
+  .question h4{
+    font-size: 16px;
+  }
+  .question p{
+    font-size: 13px;
+  }
+  .bg-h2{
+    font-size: 34px;
+  }
+  .download-btn{
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 374px){
+  header .navbar-default .navbar-nav li a{
+    font-size: 18px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 24px 22px;
+  }
+  .navbar-toggle{
+    padding: 8px;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 38px;
+  }
+  #slider .block p{
+    font-size: 20px;
+  }
+  .button a{
+    margin: 0px 20%;
+    color: #fff;
+    width: 10%;
+    padding: 16px 28px;
+  }
+  .dashboard{
+    width: 100%;
+    margin: 10px 1%;
+  }
+  .section-title p{
+    font-size: 18px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 28px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 97%;
+    margin: 10px 2%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 28px;
+  }
+  #icon{
+    position: absolute;
+    width: 25px;
+    cursor: pointer;
+    top: 274px;
+    right: 166px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 28px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 18px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 28px;
+  }
+  .pricing-p{
+    font-size: 18px;
+  }
+  .join{
+    font-size: 28px;
+  }
+  .join-us{
+    font-size: 18px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn{
+    margin: 30px 80px;
+  }
+  .contact-today{
+    font-size: 28px;
+  }
+  .contact-rate{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 20px;
+  }
+  .pricing-faq{
+    font-size: 28px;
+  }
+  .question h4{
+    font-size: 21px;
+  }
+  .question p{
+    font-size: 18px;
+  }
+  .bg-h2{
+    font-size: 38px;
+  }
+}
+@media only screen and (min-width: 375px) and (max-width: 389px){
+  header .navbar-default .navbar-nav li a{
+    font-size: 18px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 20px 23px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 38px;
+  }
+  #slider .block p{
+    font-size: 20px;
+  }
+  .button a{
+    margin: 0px 20%;
+    color: #fff;
+    width: 10%;
+    padding: 16px 28px;
+  }
+  .dashboard{
+    width: 100%;
+    margin: 10px 1%;
+  }
+  .section-title p{
+    font-size: 18px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 28px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 97%;
+    margin: 10px 2%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 28px;
+  }
+  #icon{
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    top: 274px;
+    right: 173px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 28px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 18px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 28px;
+  }
+  .pricing-p{
+    font-size: 18px;
+  }
+  .join{
+    font-size: 28px;
+  }
+  .join-us{
+    font-size: 18px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn{
+    margin: 30px 104px;
+  }
+  .contact-today{
+    font-size: 28px;
+  }
+  .contact-rate{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 20px;
+  }
+  .pricing-faq{
+    font-size: 28px;
+  }
+  .question h4{
+    font-size: 21px;
+  }
+  .question p{
+    font-size: 18px;
+  }
+  .bg-h2{
+    font-size: 38px;
+  }
+}
+@media only screen and (min-width: 390px) and (max-width: 392px){
+  header .navbar-default .navbar-nav li a{
+    font-size: 18px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 20px 23px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 38px;
+  }
+  #slider .block p{
+    font-size: 20px;
+  }
+  .button a{
+    margin: 0px 23%;
+    color: #fff;
+    width: 10%;
+    padding: 16px 28px;
+  }
+  .dashboard{
+    width: 100%;
+    margin: 10px 1%;
+  }
+  .section-title p{
+    font-size: 18px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 28px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 97%;
+    margin: 10px 2%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 28px;
+  }
+  #icon{
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    top: 274px;
+    right: 173px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 28px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 18px;
+  }
+  footer{
+    padding-bottom: 82px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 28px;
+  }
+  .pricing-p{
+    font-size: 18px;
+  }
+  .join{
+    font-size: 28px;
+  }
+  .join-us{
+    font-size: 18px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn{
+    margin: 30px 80px;
+  }
+  .contact-today{
+    font-size: 28px;
+  }
+  .contact-rate{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 20px;
+  }
+  .pricing-faq{
+    font-size: 28px;
+  }
+  .question h4{
+    font-size: 21px;
+  }
+  .question p{
+    font-size: 18px;
+  }
+  .bg-h2{
+    font-size: 38px;
+  }
+}
+@media only screen and (min-width: 393px) and (max-width: 411px){
+  header .navbar-default .navbar-nav li a{
+    font-size: 18px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 20px 23px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 38px;
+  }
+  #slider .block p{
+    font-size: 20px;
+  }
+  .button a{
+    margin: 0px 23%;
+    color: #fff;
+    width: 10%;
+    padding: 16px 28px;
+  }
+  .dashboard{
+    width: 100%;
+    margin: 10px 1%;
+  }
+  .section-title p{
+    font-size: 18px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 28px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 97%;
+    margin: 10px 2%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 28px;
+  }
+  #icon{
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    top: 277px;
+    right: 179px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 28px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 18px;
+  }
+  footer{
+    padding-bottom: 90px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 28px;
+  }
+  .pricing-p{
+    font-size: 18px;
+  }
+  .join{
+    font-size: 28px;
+  }
+  .join-us{
+    font-size: 18px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn {
+    margin: 30px 108px;
+  }
+  .contact-today{
+    font-size: 28px;
+  }
+  .contact-rate{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 20px;
+  }
+  .pricing-faq{
+    font-size: 28px;
+  }
+  .question h4{
+    font-size: 21px;
+  }
+  .question p{
+    font-size: 18px;
+  }
+  .bg-h2{
+    font-size: 38px;
+  }
+}
+@media only screen and (min-width: 412px) and (max-width: 413px){
+  header .navbar-default .navbar-nav li a{
+    font-size: 20px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 20px 24px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 49px;
+  }
+  #slider .block p{
+    font-size: 23px;
+  }
+  .button a{
+    margin: 0px 23%;
+    color: #fff;
+    width: 10%;
+    padding: 24px 35px;
+  }
+  .dashboard{
+    width: 100%;
+    margin: 10px 1%;
+  }
+  .section-title p{
+    font-size: 21px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 32px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 97%;
+    margin: 10px 2%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-p {
+    text-indent: 2%;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 10px;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 32px;
+  }
+  #icon{
+    position: absolute;
+    width: 35px;
+    cursor: pointer;
+    top: 277px;
+    right: 187px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 32px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 23px;
+  }
+  footer{
+    padding-top: 84px;
+    padding-bottom: 140px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 32px;
+  }
+  .pricing-p{
+    font-size: 23px;
+  }
+  .pricing-title{
+    font-size: 20px;
+  }
+  .p-description{
+    font-size: 23px;
+  }
+  .g-sub{
+    font-size: 23px;
+  }
+  .join{
+    font-size: 32px;
+  }
+  .join-us{
+    font-size: 23px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn {
+    margin: 30px 108px;
+  }
+  .contact-today{
+    font-size: 32px;
+  }
+  .contact-rate{
+    font-size: 23px;
+  }
+  .contact-label{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 32px;
+  }
+  .pricing-faq{
+    font-size: 32px;
+  }
+  .question h4{
+    font-size: 25px;
+  }
+  .question p{
+    font-size: 21px;
+  }
+}
+@media only screen and (min-width: 414px) and (max-width: 539px) {
+  header .navbar-default .navbar-nav li a{
+    font-size: 20px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 20px 23px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 49px;
+  }
+  #slider .block p{
+    font-size: 23px;
+  }
+  .button a{
+    margin: 0px 23%;
+    color: #fff;
+    width: 10%;
+    padding: 24px 35px;
+  }
+  .dashboard{
+    width: 100%;
+    margin: 10px 1%;
+  }
+  .section-title p{
+    font-size: 21px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 32px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 97%;
+    margin: 10px 2%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 32px;
+  }
+  #icon{
+    position: absolute;
+    width: 35px;
+    cursor: pointer;
+    top: 277px;
+    right: 187px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 32px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 23px;
+  }
+  footer{
+    padding-bottom: 120px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 32px;
+  }
+  .pricing-p{
+    font-size: 23px;
+  }
+  .pricing-title{
+    font-size: 20px;
+  }
+  .p-description{
+    font-size: 23px;
+  }
+  .g-sub{
+    font-size: 23px;
+  }
+  .join{
+    font-size: 32px;
+  }
+  .join-us{
+    font-size: 23px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn {
+    margin: 30px 108px;
+  }
+  .contact-today{
+    font-size: 32px;
+  }
+  .contact-rate{
+    font-size: 23px;
+  }
+  .contact-label{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 32px;
+  }
+  .pricing-faq{
+    font-size: 32px;
+  }
+  .question h4{
+    font-size: 25px;
+  }
+  .question p{
+    font-size: 23px;
+  }
+  .bg-h2{
+    font-size: 49px;
+  }
+}
+@media only screen and (min-width: 540px) and (max-width: 767px){
+  #logo{
+    width: 260px;
+    height: 35px;
+    margin-left: 10px;
+  }
+  header .navbar-default .navbar-nav li a{
+    font-size: 20px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 20px 30px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  .navbar-brand img{
+    width: 70%;
+  }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 60px;
+    line-height: 100px;
+  }
+  #slider .block p{
+    font-size: 22px;
+  }
+  .button a{
+    margin: 0 29%;
+    color: #fff;
+    width: 10%;
+    padding: 24px 35px;
+  }
+  .dashboard{
+    width: 100%;
+    margin: 10px 1%;
+  }
+  .section-title p{
+    font-size: 21px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  .bg-h2{
+    font-size: 40px;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    font-size: 32px;
+    text-align: center;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 100%;
+    margin: 10px 4%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 32px;
+  }
+  #icon{
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    top: 287px;
+    right: 253px;
+  }
+  header .navbar-default .navbar-nav {
+    padding: 15px;
+  }
+  .section-title2 h2{
+    font-size: 32px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 23px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 32px;
+  }
+  .pricing-p{
+    font-size: 23px;
+  }
+  .pricing-title{
+    font-size: 20px;
+  }
+  .p-description{
+    font-size: 23px;
+  }
+  .g-sub{
+    font-size: 23px;
+  }
+  .join{
+    font-size: 32px;
+  }
+  .join-us{
+    font-size: 23px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn {
+    margin: 30px 152px;
+  }
+  .contact-today{
+    font-size: 32px;
+  }
+  .contact-rate{
+    font-size: 23px;
+  }
+  .contact-label{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 32px;
+  }
+  .pricing-faq{
+    font-size: 32px;
+  }
+  .question h4{
+    font-size: 25px;
+  }
+  .question p{
+    font-size: 23px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 819px){
+  header .navbar-default .navbar-nav li a{
+    font-size: 16px;
+    padding: 10px 8px;
+  }
+  .navbar-default .navbar-toggle{
+    margin: 20px 10px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 60px;
+    line-height: 100px;
+  }
+  #slider .block p{
+    font-size: 26px;
+  }
+  .button a{
+    margin: 0 35%;
+    color: #fff;
+    width: 10%;
+    padding: 24px 35px;
+  }
+  .dashboard{
+    width: 90%;
+    margin: 10px 4%;
+  }
+  .section-title p{
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    text-align: center;
+    padding-top: 35px;
+    line-height: 47px;
+    margin: 0;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 100%;
+    margin: 52px 17%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 32px;
+  }
+  #icon{
+    top: 23px;
+    right: 35px;
+  }
+  .section-sm {
+    margin-bottom: 355px;
+  }
+  header .navbar-default .navbar-nav {
+      padding-top: 21px;
+      padding-right: 60px;
+  }
+  #logo{
+    width: 80%;
+  }
+  .section-title2 h2{
+    font-size: 32px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 23px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 32px;
+  }
+  .pricing-p{
+    font-size: 23px;
+  }
+  .pricing-title{
+    font-size: 20px;
+  }
+  .p-description{
+    font-size: 23px;
+  }
+  .g-sub{
+    font-size: 23px;
+  }
+  .join{
+    font-size: 32px;
+  }
+  .join-us{
+    font-size: 23px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn {
+    margin: 30px 152px;
+  }
+  .contact-today{
+    font-size: 32px;
+  }
+  .contact-rate{
+    font-size: 23px;
+  }
+  .contact-label{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 32px;
+  }
+  .pricing-faq{
+    font-size: 32px;
+  }
+  .question h4{
+    font-size: 25px;
+  }
+  .question p{
+    font-size: 23px;
+  }
+}
+@media only screen and (min-width: 820px) and (max-width: 911px){
+  .navbar-default .navbar-toggle{
+    margin: 20px 10px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 60px;
+    line-height: 100px;
+  }
+  #slider .block p{
+    font-size: 26px;
+  }
+  .button a{
+    margin: 0 35%;
+    color: #fff;
+    width: 10%;
+    padding: 24px 35px;
+  }
+  .dashboard{
+    width: 90%;
+    margin: 10px 4%;
+  }
+  .section-title p{
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    text-align: center;
+    padding-top: 35px;
+    line-height: 47px;
+    margin: 0;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 100%;
+    margin: 52px 17%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 32px;
+  }
+  #icon{
+    right: 3px;
+    top: 28px;
+  }
+  header .navbar-default .navbar-nav {
+    padding-top: 25px;
+    padding-right: 30px;
+  }
+  header .navbar-default .navbar-nav li a{
+    padding: 10px 14px;
+  }
+  .section-title2 h2{
+    font-size: 32px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 27px;
+  }
+  footer{
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 32px;
+  }
+  .pricing-p{
+    font-size: 23px;
+  }
+  .pricing-title{
+    font-size: 20px;
+  }
+  .p-description{
+    font-size: 23px;
+  }
+  .g-sub{
+    font-size: 23px;
+  }
+  .join{
+    font-size: 32px;
+  }
+  .join-us{
+    font-size: 23px;
+  }
+  .section-sm{
+    margin-bottom: 400px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn {
+    margin: 30px 152px;
+  }
+  .contact-today{
+    font-size: 32px;
+  }
+  .contact-rate{
+    font-size: 23px;
+  }
+  .contact-label{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 32px;
+  }
+  .pricing-faq{
+    font-size: 32px;
+  }
+  .question h4{
+    font-size: 25px;
+  }
+  .question p{
+    font-size: 23px;
+  }
+}
+@media only screen and (min-width: 912px) and (max-width: 1023px){
+  .navbar-default .navbar-toggle{
+    margin: 20px 10px;
+  }
+  .navbar-toggle{
+    margin-right: 0;
+  }
+  .navbar-brand{
+    float: none;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+  #slider{
+    padding: 50px 25px 5px 25px;
+  }
+  #slider .block h1{
+    font-size: 60px;
+    line-height: 100px;
+  }
+  #slider .block p{
+    font-size: 26px;
+  }
+  .button a{
+    margin: 0 35%;
+    color: #fff;
+    width: 10%;
+    padding: 24px 35px;
+  }
+  .dashboard{
+    width: 90%;
+    margin: 10px 4%;
+  }
+  .section-title p{
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+  #intro{
+    padding: 50px 0;
+  }
+  #intro .block h2{
+    text-align: center;
+    padding-top: 35px;
+    line-height: 47px;
+    margin: 0;
+  }
+  #intro .section-title p{
+    text-align: center;
+  }
+  #intro .block img{
+    width: 100%;
+    margin: 52px 17%;
+  }
+  .intro-easy{
+    padding: 0;
+  }
+  .create-s{
+    padding: 0;
+  }
+  .create-p{
+    text-indent: 0;
+  }
+  .intro-perp{
+    padding: 0;
+  }
+  .intro-back{
+    padding: 0;
+  }
+  .assist-p{
+    text-indent: 0;
+  }
+  .row-2{
+  display: flex;
+  flex-flow: column-reverse;
+  }
+  #call-to-action h2{
+    font-size: 32px;
+  }
+  #icon{
+    right: -17px;
+    top: 24px;
+  }
+  header .navbar-default .navbar-nav {
+    padding-top: 21px;
+  }
+  .section-title2 h2{
+    font-size: 32px;
+  }
+  #testimonial .testimonial-carousel p{
+    font-size: 27px;
+  }
+  footer .footer-manu ul{
+    padding: 8px;
+  }
+  footer .footer-manu ul li{
+    display: inline-block;
+    padding: 0px 10px;
+  }
+  footer p{
+    margin: 0px 2px;
+  }
+  .pricing-h2{
+    font-size: 32px;
+  }
+  .pricing-p{
+    font-size: 23px;
+  }
+  .pricing-title{
+    font-size: 20px;
+  }
+  .p-description{
+    font-size: 23px;
+  }
+  .g-sub{
+    font-size: 23px;
+  }
+  .join{
+    font-size: 32px;
+  }
+  .join-us{
+    font-size: 23px;
+  }
+  .section-sm{
+    margin-bottom: 696px;
+  }
+  .btn-discord a{
+    margin: -40%;
+    padding: 16px 30px;
+  }
+  .support{
+    padding: 100px 0 0 0;
+  }
+  .sub-btn {
+    margin: 30px 152px;
+  }
+  .contact-today{
+    font-size: 32px;
+  }
+  .contact-rate{
+    font-size: 23px;
+  }
+  .contact-label{
+    font-size: 18px;
+  }
+  #contact-box .block h2{
+    font-size: 32px;
+  }
+  .pricing-faq{
+    font-size: 32px;
+  }
+  .question h4{
+    font-size: 25px;
+  }
+  .question p{
+    font-size: 23px;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1279px){
+  header .navbar-default .navbar-nav{
+    margin-right: 25px;
+  }
+  #icon{
+    right: 10px;
+  }
+  .button a{
+    margin: 0 39%;
+    color: #fff;
+    width: 10%;
+    padding: 26px 44px;
+  }
+  .dashboard{
+    width: 80%;
+    margin: 10px 10%;
+  }
+  #intro .section-title p {
+    padding: 27px;
+  }
+  #intro .block img {
+    height: auto;
+    width: auto;
+    max-width: 387px;
+    max-height: 400px;
+  }
+  .button a {
+    margin: 0 37%;
+  }
+  .section-title h2{
+    font-size: 28px;
+  }
+}

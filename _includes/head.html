@@ -1,0 +1,95 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+<!-- CSS -->
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/img/logo.png">
+<link rel="stylesheet" href="{{ site.baseurl }}/css/owl.carousel.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/font-awesome.min.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/ionicons.min.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/animate.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/responsive.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/css/testimonial.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+<link rel=”stylesheet” href=”build/css/intlTelInput.css”>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="{{ site.baseurl }}/dist/aos.css" />
+
+<!-- Js -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+<script src="{{ site.baseurl }}/js/owl.carousel.min.js"></script>
+<script src="{{ site.baseurl }}/js/plugins.js"></script>
+<script src="{{ site.baseurl }}/js/min/waypoints.min.js"></script>
+<script src="{{ site.baseurl }}/js/jquery.counterup.js"></script>
+<script src="{{ site.baseurl }}/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Required for using jQuery input mask plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+<script src="{{ site.baseurl }}/dist/aos.js"></script>
+<!--
+/*
+ * Airspace
+ * Ported to Jekyll by Andrew Lee
+ * https://github.com/ndrewtl/airspace-jekyll
+ * Designed and Developed by ThemeFisher
+ * https://themefisher.com/
+ *
+ */
+-->
+
+<script>
+//for contact form
+function SubForm (){
+  let x = document.forms["contact"]["full_name"].value;
+  let y = document.forms["contact"]["email"].value;
+  let z = document.forms["contact"]["phone"].value;
+if (x == "") {
+  document.getElementById("full_name").placeholder = "Please fill out this field";
+  document.getElementById("full_name").style.boxShadow = "0 0 2px 1px #cc0001";
+  return false;
+}
+if (y == "") {
+  document.getElementById("email").placeholder = "Please fill out this field";
+  document.getElementById("email").style.boxShadow = "0 0 2px 1px #cc0001";
+  return false;
+}
+if (z == "") {
+  document.getElementById("phone").placeholder = "Please fill out this field";
+  document.getElementById("phone").style.boxShadow = "0 0 2px 1px #cc0001";
+  return false;
+}
+else{
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/CSkTaxXvzaLHek0I/',
+        type:'post',
+        data:$("#bioscreator").serializeArray(),
+        success: function(){
+          window.location = "{{ site.baseurl }}/ty-page";
+        },
+        error: function(){
+          alert("There was an error :(")
+        }
+    });
+}
+}
+
+async function fetchText(){
+  let url = 'https://ipinfo.io/210.23.187.171/json?token=bf1eedb09dfc46';
+  let response = await fetch(url);
+  let data = await response.json();
+
+  return data;
+}
+</script>
