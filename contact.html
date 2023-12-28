@@ -41,9 +41,6 @@
 
 <script src="https://cdn03.jotfor.ms/static/prototype.forms.js?v=3.3.49662" type="text/javascript"></script>
 <script src="https://cdn01.jotfor.ms/static/jotform.forms.js?v=3.3.49662" type="text/javascript"></script>
-<script src="https://cdn02.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.49662" type="text/javascript"></script>
-<script src="https://cdn03.jotfor.ms/js/vendor/maskedinput.min.js?v=3.3.49662" type="text/javascript"></script>
-<script src="https://cdn01.jotfor.ms/js/vendor/jquery.maskedinput.min.js?v=3.3.49662" type="text/javascript"></script>
 <script src="https://cdn02.jotfor.ms/js/punycode-1.4.1.min.js?v=3.3.49662" type="text/javascript" defer></script>
 <script src="https://cdn03.jotfor.ms/js/payments/validategateways.js?v=3.3.49662" type="text/javascript"></script>
 <script src="https://cdn01.jotfor.ms/s/umd/0852988d027/for-form-branding-footer.js?v=3.3.49662" type="text/javascript" defer></script>
@@ -62,24 +59,24 @@
 	JotForm.init(function(){
 	/*INIT-START*/
 if (window.JotForm && JotForm.accessible) $('input_15').setAttribute('tabindex',0);
-      JotForm.setPhoneMaskingValidator( 'input_4_full', '\u0028\u0023\u0023\u0023\u0029 \u0023\u0023\u0023\u002d\u0023\u0023\u0023\u0023' );
+if (window.JotForm && JotForm.accessible) $('input_17').setAttribute('tabindex',0);
       JotForm.alterTexts(undefined);
 	/*INIT-END*/
 	});
 
    setTimeout(function() {
-JotForm.paymentExtrasOnTheFly([null,null,{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},null,{"description":"","name":"mobilePhone","qid":"4","text":"Mobile Phone","type":"control_phone"},{"name":"email","qid":"5","subLabel":"example@example.com","text":"Email","type":"control_email"},null,null,null,null,null,null,null,null,null,{"description":"","name":"fullName","qid":"15","subLabel":"Enter your full name","text":"Full Name","type":"control_textbox"}]);}, 20); 
+JotForm.paymentExtrasOnTheFly([null,null,{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},null,null,{"name":"email","qid":"5","subLabel":"example@example.com","text":"Email","type":"control_email"},null,null,null,null,null,null,null,null,null,{"description":"","name":"fullName","qid":"15","subLabel":"Enter your full name","text":"Full Name","type":"control_textbox"},null,{"description":"","name":"mobileNumber","qid":"17","subLabel":"Enter your mobile number","text":"Mobile Number","type":"control_textbox"}]);}, 20); 
 </script>
 </head>
 <body>
-<form class="jotform-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://submit.jotform.com/submit/233591051299460" method="post" name="form_233591051299460" id="233591051299460" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="233591051299460" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" /><input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1703726323116" /><input type="hidden" id="submitSource" name="submitSource" value="unknown" /><input type="hidden" id="buildDate" name="buildDate" value="1703726323116" />
+<form class="jotform-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://submit.jotform.com/submit/233591051299460" method="post" name="form_233591051299460" id="233591051299460" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="233591051299460" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" /><input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1703727840103" /><input type="hidden" id="submitSource" name="submitSource" value="unknown" /><input type="hidden" id="buildDate" name="buildDate" value="1703727840103" />
   <div role="main" class="form-all">
     <ul class="form-section page-section">
       <li class="form-line jf-required" data-type="control_textbox" id="id_15"><label class="form-label form-label-left form-label-auto" id="label_15" for="input_15" aria-hidden="false"> Full Name<span class="form-required">*</span> </label>
         <div id="cid_15" class="form-input jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_15" name="q15_fullName" data-type="input-textbox" class="form-textbox validate[required, Alphabetic]" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_15 sublabel_input_15" required="" value="" /><label class="form-sub-label" for="input_15" id="sublabel_input_15" style="min-height:13px">Enter your full name</label></span> </div>
       </li>
-      <li class="form-line jf-required" data-type="control_phone" id="id_4"><label class="form-label form-label-left" id="label_4" for="input_4_full"> Mobile Phone<span class="form-required">*</span> </label>
-        <div id="cid_4" class="form-input jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_4_full" name="q4_mobilePhone[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[required, Fill Mask]" data-defaultvalue="" style="width:310px" data-masked="true" placeholder="(000) 000-0000" data-component="phone" aria-labelledby="label_4 sublabel_4_masked" required="" value="" /><label class="form-sub-label" for="input_4_full" id="sublabel_4_masked" style="min-height:13px">Example: (639) 123-4567</label></span> </div>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_17"><label class="form-label form-label-left form-label-auto" id="label_17" for="input_17" aria-hidden="false"> Mobile Number<span class="form-required">*</span> </label>
+        <div id="cid_17" class="form-input jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_17" name="q17_mobileNumber" data-type="input-textbox" class="form-textbox validate[required, Fill Mask, minCharLimit]" data-defaultvalue="" style="width:310px" size="310" maxLength="15" data-minlength="7" data-component="textbox" aria-labelledby="label_17 sublabel_input_17" required="" value="" /><label class="form-sub-label" for="input_17" id="sublabel_input_17" style="min-height:13px">Enter your mobile number</label></span> </div>
       </li>
       <li class="form-line jf-required" data-type="control_email" id="id_5"><label class="form-label form-label-left" id="label_5" for="input_5" aria-hidden="false"> Email<span class="form-required">*</span> </label>
         <div id="cid_5" class="form-input jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_5" name="q5_email" class="form-textbox validate[required, Email]" data-defaultvalue="" style="width:310px" size="310" data-component="email" aria-labelledby="label_5 sublabel_input_5" required="" value="" /><label class="form-sub-label" for="input_5" id="sublabel_input_5" style="min-height:13px">example@example.com</label></span> </div>
