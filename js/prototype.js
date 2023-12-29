@@ -5024,7 +5024,7 @@ if ( document.documentElement.compareDocumentPosition ) {
 
 if ( document.querySelectorAll ) (function(){
     var oldSizzle = Sizzle, div = document.createElement("div");
-    div.innerHTML = "<p class='TEST'></p>";
+    div.innerHTML = "<p class='TEST'></li>";
 
     if ( div.querySelectorAll && div.querySelectorAll(".TEST").length === 0 ) {
         return;
