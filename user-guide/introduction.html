@@ -1,0 +1,342 @@
+---
+layout: page
+title: Introduction
+permalink: /user-guide/introduction/
+---
+
+<section class="faq section-sm" style=" margin-bottom: 100px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 mb-3">
+			</div>
+		</div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div style="padding:25px 0;">
+			<h4>BiosCreator Features</h4>
+            <ul>
+            <li>Extract stock firmware from various Bios Update Utility file</li>
+            <li>Clean ME/TXE Regions</li>
+            <li>Upgrade/Downgrade ME/TXE Regions</li>
+            <li>Repair/Replace/Extract ME, BIOS and FD Regions</li>
+            <li>Backup windows keys</li>
+            <li>Split EC and System BIOS from a single bin file</li>
+            <li>Extract EC firmware from System BIOS</li>
+            <li>Update/Replace Macbook serial number</li>
+            <li>Decrypt EFI password for Macbook 2011 or earlier</li>
+            <li>Extract stock firmware from Sony VAIO Package Manager</li>
+            <li>Extract firmware from capsule file for laptops with AMD CPUs (Lenovo, Asus, Acer, etc.)</li>
+            <li>Recover HP DMI Info and transfer to new stock firmware (for HP only)</li>
+            <li>Bios Info for HP and Acer</li>
+            <li>Clear NVRAM for UEFI FIRMWARE</li>
+            <li>Master password generator for most brands of laptops</li>
+            <li>Remove/decrypt password for MS Surface Book/Pro 1-6</li>
+            <li>Unlock Supervisor Passwords for Lenovo Thinkpads 4th-8th gen</li>
+            <li>Unlocks Supervisor Passwords for Elitebooks G1(4th gen) to G8(8th gen)</li>
+            <li>Download stock Bios Update Utility from MS Catalog Server</li>
+            <li>Disable On-Board RAM for most laptops</li>
+            <li>Disable enrollment check and enable developer mode in Chromebooks</li>
+        </ul>
+			</div>
+            <div>
+                <h4>Supported Models</h4>
+                <ul>
+                <li>All major laptop and desktop brands are supported.</li>
+                </ul>
+                </div>
+                <br>
+            <div>
+                <h4>Cleaning of ME/TXE Region</h4>
+                <ul>
+                <li>All laptop models are supported except the following:</ul>
+                <li>Laptops w/ CSE TXE 3.0/4.0 Firmware</li>
+                <li>Laptops w/ CSE v11 and higher (work in progress)</li>
+                <li>Macbooks 2018 and up</li>
+                
+            </div>
+            <br>
+
+            <div>
+                <a href="{{ site.baseurl }}/user-guide/stock-firmware"><h4>Create Stock Firmware</h4></a>
+                <ul>
+                <li>Acer</li>
+                <li>HP</li>
+                <li>Lenovo</li>
+                <li>Dell</li>
+                <li>Asus</li>
+                <li>Toshiba</li>
+                <li>Samsung (limited support)</li>
+                <li>Apple</li>
+                <li>Sony</li>
+                <li>Fujitsu</li>
+                <li>LG</li>
+                <li>MSI</li>
+                <li>ECS</li>
+                <li>MS Catalog Server</li>
+                <li>Gigabyte</li>
+                <li>Asrock</li>
+            </ul>
+            </div>
+      </div>
+      
+      <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<h4>Version History</h4>
+                <details>
+				<summary><h4>2.1.21</h4></summary>
+                <ul>
+                <li>Fixed throwing exception when dell firmware does not contain ec region</li>
+                <li>Updated file data and libraries for analyzing ME/TXE/CSME (also download and install the data files update at discord channel - #bioscreator-release)</li>
+                <li>DMI for HP Business Laptops is now disabled for PC Edition, get the USB Edition instead</li>
+                <li>Fixed issue when extracting multiple firmware in Winflash</li>
+                <li>Improved detection of HP AMI System BIOS when extracting firmware from Winflash</li>
+                <li>Added NVRAM Reset for AMI UEFI</li>
+                <li>Fixed NVRAM Reset for Dell 5490 fails</li>
+                <li>Created stock bios is not right for Asus GU603HE</li>
+                <li>Fixed issue with AMI BIOSGuard where extracted BIOS Region is longer than the correct size</li>
+                <li>Implemented FFS v3 to simplify extraction of capsule file</li>
+                <li>Added password unlock for HP EliteDesk 800 G2</li>
+                <li>Could not find a part of the path …\BiosCreator\FileMon\tmpAF0F error</li>
+                <li>Added support for bios version info for HP business laptops and PC up to G9 (e.g., elitebooks, elitedesks, probooks, prodesks)</li>
+                <li>Added autodetection for System BIOS and EC Firmware in UI when removing locks/password for HP business laptops and PCs</li>
+                <li>Fixed issue removing lock for HP 840 G7 where patched file results to “NO POWER” Issue</li>
+                <li>Updated referenced DLL to latest release</li>
+                <li>Fixed issue with changing serial numbers in Chromebook utility</li>
+                <li>Added future support in Chromebook utility where machine unique info from one dump is now possible to be copied to another dump</li>
+                <li>Added parser for NVRAM entries</li>
+                <li>Refactored AMI Aptio capsule file extractor for asus</li>
+                <li>Fix validation tests for ffs parsers</li>
+            </ul>
+            </details>
+			</div>
+      </div>
+
+      <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+                <details>
+				<summary><h4>2.1.20</h4></summary>
+            <ul>
+                <li>Fixed issue where BiosCreator would refuse to run when license is already expired</li>
+                <li>Improved detection and extraction of lenovo bios update utility for AMD CPUs</li>
+                <li>Refactored and fixed issues with old format of Dell Bios update utility</li>
+                <li>Fixed detection of Bios region when extracting HP Elitebook stock firmware</li>
+                <li>Fixed removal of SWAT lock in HP Elitebook 840 G8</li>
+                <li>Fixed throwing error when the firmware does not have a device secret in Chromebook</li>
+                <li>Added unlock for Dell Latitude 5500 series - 5500/5501/5520/5540/5550/5560</li>
+                <li>Added detection/extraction of ITE IT8227E & IT8587E/FX in EC Firmware Tool</li>
+                <li>Added support for extracting KB9542 from System BIOS</li>
+                <li>Redesign of EC Firmware Extraction tool</li>
+                <li>Extract EC Firmware from laptop with AMD CPU</li>
+                <li>Fixed issue where EC firmware is not being extracted from EXE for </li>
+                <li>Fixed unable to correctly parse system bios in Asus gx531gs. Now, all laptops that utilize capsule file with bios region only or full system bios firmware can be detected and extracted correctly.</li>
+                <li>Fixed issue with Toshiba COM file not being extracted</li>
+                <li>Fixed issue with absolute persistence in HP 840 G8</li>
+                <li>Improved UI fo password/swat/absolute persistence removal in HP Elitebooks</li>
+                <li>Fixed issues when extracting firmware for Dell Alienware Area-51m and m15/m17 r3</li>
+                <li>Added support for Asrock, panasonic</li>
+            </ul>
+            </details>
+            </div>
+		</div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.19</h4></summary>
+            <ul>
+                <li>Improved detection and extraction of Asus capsule file header</li>
+                <li>Added support for Chromebooks 11th Gen</li>
+                <li>Improved UI for extracting BIOS region from old Lenovo BIOS update file(e.g, Lenovo G580, G480)</li>
+                <li>Improved extraction of BIOS region for old Lenovo BIOS update file</li>
+                <li>Added ability to edit serial number of Chromebook</li>
+                <li>Firmware for HP Elitebooks w/ AMD CPUs can now be extracted correctly</li>
+                <li>NVRAM does not open due to multiple exports registration</li>
+                <li>Fixed issue in extracting Toshiba firmware - C55T</li>
+                <li>Fixed incorrect detection of ME and System BIOS in Dell Inspiron 7447 Bios Update utility</li>
+                <li>Fixed AMI BIOS extraction for Dell</li>
+                <li>Resolved issues when copying DMI info for HP laptops w/ AMD CPUs, e.g., HP 14s-fq0017na</li>
+            </ul>
+            </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.18</h4></summary>
+            <ul>
+                <li>fixed #184 - Unable to extract alienware m15/m17</li>
+                <li>fixed #195 - Issue with EC Region tool error not correctly replacing the dump's EC region section for Dell UEFI Firmware</li>
+                <li>fixed #193 - Exception is thrown in Lenovo Flex 2-14 CAP file</li>
+                <li>fixed #199 - Extraction of FIrmware for Gigabyte Desktop Motherboard</li>
+                <li>fixed #200 - DMI Info for some HP (e.g., HP 13-AO10DX)</li>
+                <li>fixed #206 - Unable to extract Dell 5420. This fix resolves errors that occur when file(s) to be processed have filename length exceeds 255 characters.</li>
+                <li>fixed #207 - Support for unlocking Dell 7420, 5430, 5420, 3420 and 11th gen CPU.</li>
+                <li>fixed #209 - Unable to extract bios region for HP 840 G5</li>
+                <li>fixed #210 - Unable to extract DMI Info for HP 840 G5</li>
+                <li>fixed #211 - Unable to extract firmware from CAP file in Lenovo L500w Gen3 L500W (system hangup)</li>
+                <li>fixed #212 - Unable to extract from CAP file for Lenovo 5-15IKB</li>
+                <li>fixed #213 - Wrong extracted firmware size for HP w/ AMI BIOS when multiple bin file is found</li>
+                <li>fixed #214 - Unable to extract Lenovo 3-15iil05</li>
+                <li>fixed #215 - Unable to properly extract firmware from Lenovo v130-15ikb</li>
+                <li>fixed bugs in HP DMI for Elitebooks where UUID is not parsed correctly.</li>
+                <li>fixed end of stream exception when parsing evsa</li>
+                <li>added functions for cleaning AMI NVRAM for laptops/desktops with AMD CPUs (coming in v2.1.19)</li>
+                <li>added functions for updating ME/TXE region files online, delayed a bit, due to design considerations (coming in v2.19)</li>
+            </ul>
+            </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.17</h4></summary>
+            <ul>
+                <li>fixed #181 - issue with NVRAM Restore functionality where resulting firmware = nvram size</li>
+                <li>fixed #186 - Correctly parse VSS Entry</li>
+                <li>fixed #183 - added a way to copy or edit dmi information from EC to System Bios and vice versa. Copy/paste of system information to/from clipboard is also supported.</li>
+                <li>fixed #179 - Clear NVRAM for Acer E5-411(ZQM) error</li>
+                <li>fixed #188 - Update license status to Subscription to avoid confusion.</li>
+                <li>fixed #182 - Add a new function to combine firmware stored in 2 spi chips</li>
+                <li>added a function to split the full uefi firmware for writing into two separate spi chips.</li>
+                <li>fixed #191 - RegionExtraction and Bios Region repair now provides an error message when a UEFI is truncated and may need to be merged with the missing part.</li>
+                <li>fixed #180 - Capsule file not supported for Lenovo Thinkpad</li>
+                <li>fixed #167 - Ability to create stock firmware for Dell 3153 3158 7353 7359 7568</li>
+                <li>fixed #161 - Extraction if APTIO firmware where the content is only a Bios Region but appears a full-sized firmware (Asus x409JP)</li>
+                <li>fixed #137 - Stock Firmware for Lenovo Thinkpad 490, 490s Crashes</li>
+                <li>fixed #111 - Detect when EC Firmware is inside the System Bios</li>
+                <li>fixed #189 - Unable to extract firmware from Lenovo Thinkpad E570</li>
+                <li>fixed #168 - Acer Swift SF314-43 extracted stock firmware as BiosRegion</li>
+                <li>fixed #192 - Lenovo 330-14igm throws an exception when extracting an FD file due to invalid character in filename</li>
+                <li>fixed #190 - USB Edition functionalities are missing.</li>
+            </ul>
+            </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.16</h4></summary>
+            <ul>
+                <li>fixed #175 - Unable to remove standard cap header for asus 0X800 X509UA</li>
+                <li>fixed #176 - Unable to extract and replace corrupted FD Region</li>
+                <li>fixed #177 - Unable to extract regions for Acer Spin 3</li>
+                <li>fixed #171 - Implement PFAT Extraction, refactored AMI PFAT and replaced with own implementation</li>    
+            </ul>
+        </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.15</h4></summary>
+            <ul>
+                <li>added #160 - added support for backup/restore of GbE region</li>
+                <li>added support for replacing EC region in Dell UEFI Firmware</li>
+                <li>added #60 - Inject/Repair EC firmware for Dell System Bios</li>
+                <li>fixed #165 - Apple firmware throws an exception - could not find a part of a path</li>
+                <li>added tab icons</li>
+            </ul>
+            </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.14</h4></summary>
+            <ul>
+                <li>fixed #159 - issue with some users where BiosCreator throws an exception during startup</li>
+                <li>closes #128 - copy ME region from other dump.</li>
+                <li>closes #87 - remove SWAT for HP 840 G7</li>
+                <li>improved extraction of EC firmware for AMI-based firmware</li>
+                <li>closes #163 - Unable to extract bios region from firmware for Acer Aspire C24-1650</li>
+                <li>added support for Intel UEFI Firmware (implemented from scratch)</li>
+                <li>improved the stability of UEFI Region extraction, now GbE, EC and PDR Regions are supported</li>
+                <li>this version will no longer force new update during start up. Update button is available in Settings Tab</li>
+            </ul>
+        </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.13</h4></summary>
+            <ul>
+                <li>fixed issue with HP 840 G8 w/ partial unlock
+                <li>fixed issue with MS Surface Pro View not responding to any operation.</li>
+                <li>added license status info when current update is not valid for current license.</li>
+                <li>fixed issue #135 - Unble to extract HP Probook 360 11</li>
+                <li>fixed issue #146 - False detection of E1-451G System Bios as Bios Region</li>
+                <li>closed #132 - Online download of UEFI Firmware at MS (see v2.1.11 release notes)</li>
+                <li>fixed annoying error message when temporary files are unable to delete</li>
+                <li>adjust error messages to be visible in debug level only when connection is offline.</li>
+                <li>fixed issue #152 - Incorrect name for extracted Asus UX433FN Firmware</li>
+                <li>fixed #158 - Failed to extract hp firmware w/ padding - hp 15-dk1000 series</li>
+                <li>fixed #142 - Disable On-Board RAM for all brand</li>
+                <li>fixed #153 - added whitelisting of HP 580 G8</li>
+                <li>closed #156 - Unlock for Dell w/ Service Tag Prefix 8FC8</li>
+                <li>added custom unlock for Dell Inspiron 5410, 3080, 790</li>
+                <li>fixed #157 - clean, backup, restore nvram data</li>
+                <li>added support for extracting bios region for HP Elitebook G8 laptops</li>
+            </ul>
+        </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.12</h4></summary>
+            <ul>
+                <li>fixed issue #143 with setup script causing “file not found” error during startup.</li>
+                <li>fixed issue #144 - Dell button does not open in stock firmware tab</li>
+            </ul>
+            </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.11</h4></summary>
+            <ul>
+                <li>resolved issue where trial version would auto update.</li>
+                <li>added structure for parsing FFSv2</li>
+                <li>added parsing VSS2 and VSS</li>
+                <li>fixed bugs in Lenovo Thinkpad Supervisor Password unlock for 4rth-8th Gen CPU.</li>
+                <li>added test cases for hp and lenovo supervisor password unlocks</li>
+                <li>added password unlock and patch for MS Surface Book 1 & 2 and Surface Pro 3, 4, 5, 6 & 7</li>
+                <li>added a tool to extract FD, ME and BIOS region from Intel UEFI firmware.</li>
+                <li>added a tool for clearing VSS in NVRAM volume</li>
+                <li>added a tool for downloading bios update from MS Update Catalog Server</li>
+                <li>fixed Chromebook bugs failing unit test</li>
+            </ul>
+            </details>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 question">
+			<div class="question" style="padding:25px 0;">
+				<details>
+				<summary><h4>2.1.10</h4></summary>
+            <ul>
+                <li>master password generator is now enabled.</li>
+                <li>fixed systm crashes with removing password for 840/820/450 G3</li>
+                <li>added support for removing password for 840/820/450 G2</li>
+                <li>added support for 840/820/450 G1</li>
+                <li>added/improved support for 840/820/450 G6</li>
+                <li>added downloads tab for searching/downloading bios updates for common laptops/destops</li>
+                <li>added package download tool for mac firmware</li>
+                <li>added copying of Serial Number (DMI) from backup to apple stock firmware</li>
+            </ul>
+            </details>
+            </div>
+        </div>
+        
+	</div>
+</section>

@@ -7,15 +7,15 @@ permalink: /blog/
   <div class="container">
     <div class="container" style="text-align:center; margin-bottom:50px;">
       <h2 style="color:#000; font-weight:400; font-size: 40px; margin-top:100px;">Blog</h2>
-      <p style="margin-top:10px; font-size:22px;">Keep up with the latest news.</p>
+      <p style="margin-top:10px; font-size:22px;">Keep up with the latest news.</li>
     </div>
   </div>
 {% for post in site.posts %}
 <div class="post-area">
   <a href="{{ post.url | prepend: site.baseurl }}" class="bold">{{ post.title }}</a>
-  <p class="post-date">{{ post.date | date_to_long_string }}</p>
-  <p>
+  <p class="post-date">{{ post.date | date_to_long_string }}</li>
+  <li>
     {{ post.content | strip_html | truncatewords: 50 }}
-  </p>
+  </li>
 </div>
 {% endfor %}

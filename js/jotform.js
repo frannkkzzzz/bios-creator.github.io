@@ -14649,7 +14649,7 @@ var JotForm = {
                             // clear prior errors
                             $$('.form-card-error').invoke('remove');
                             var errorBox = new Element('div', {className: 'form-button-error form-card-error'});
-                            errorBox.insert('<p>' + errors + '</p>');
+                            errorBox.insert('<li>' + errors + '</li>');
                             $(lastButton.parentNode.parentNode).insert(errorBox);
                         }
                         JotForm.enableButtons();
@@ -15785,7 +15785,7 @@ var JotForm = {
                 role: 'alert'
             });
 
-            errorBox.insert('<p>' + (typeof txt !== "undefined" ? txt : JotForm.texts.generalError) + '</p>');
+            errorBox.insert('<li>' + (typeof txt !== "undefined" ? txt : JotForm.texts.generalError) + '</li>');
 
             var buttonParentNode = button.parentNode.parentNode;
             $(buttonParentNode).insert(errorBox);
@@ -15862,7 +15862,7 @@ var JotForm = {
             var disableSubmitErrorMessageElement = jfCardElement && jfCardElement.querySelector('.jfCard-disableSubmitError');
             if(!jfCardElement || !disableSubmitErrorMessageElement) return;
 
-            disableSubmitErrorMessageElement.innerHTML = '<p>' + JotForm.disableSubmitButtonMessage + '</p>';
+            disableSubmitErrorMessageElement.innerHTML = '<li>' + JotForm.disableSubmitButtonMessage + '</li>';
             disableSubmitErrorMessageElement.style.display = JotForm.disableSubmitButton ? 'block' : 'none';
             if (JotForm.disableSubmitButton) {
                 jfCardElement.addClassName('jfCard-submitErrored');
