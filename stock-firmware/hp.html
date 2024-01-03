@@ -37,45 +37,30 @@ permalink: /stock-firmware/hp
 	<div class="container">
     <div class="container" style="text-align:justify; margin-bottom:50px;">
       <h4 class="join">Acer</h4>
-      <p>Most Acer laptops utilizes InsydeFlash UEFI BIOS. Follow this general steps to create a stock firmware. You may also check other examples and also a flowchart is shown below as a guide for extracting firmware for Acer.</p>
-        <li>How to extract InsydeFlash bios update?</li>
-        <li>How to split System BIOS and EC firmware bios bin file?</li>
-    </div>
-    <div class="container" style="text-align:justify; margin-bottom:50px;">
-        <img src="../assets/images/acer-flowchart.png" class="center">
-    </div>
-    <div>
-    <h2>Procedure for Creating Acer Stock Firmware</h2>
+      <p>The general procedure for creating stock firmware is to download from HP website directly. Once downloaded, BiosExtractor can be used to create stock firmware.</p>
+	<p>HP BIOS update is normally in self-extracting EXE file when downloaded. Even if you can successfully extract it using conventional decompression software, the resulting firmware file is encrypted. Creating stock firmware for HP laptops mostly follow the process in the next section.</p>
+	<p>Newer HP Bios Update Utilities gives you the option to create stock firmware or create crisis disk recovery which you can use to recover corrupted system bios. A flowchart is shown below as a guide for extracting HP firmwares.</p>
+        <img src="../assets/images/hp-flowchart.png" class="center">
+	    
+    <h2>General Procedure</h2>
         <ol>
-            <li>Open BiosCreator and click Acer (InsydeFlash) button</li>
-            <li> A window will popup similar to the image below.</li>
-            <li>Drag the bios update file that you downloaded from Acer (1) to the InsydeFlash BIOS Extractor dialog (2), for example Acer v5-561p, then click the Extract button (3). You should see the extracted file as shown in (4). Note: Alternatively, you can also achieve this task by using your favorite decompression sotware (Winrar, 7Zip, etc.)</li>
-            <li>Drag the file extracted file - V5WE2217.EXE (1) to the InsydeFlash BIOS Extractor dialog (2) and click Extract button (3), again. You should see the extracted firmware (4), ready to flash using your favorite SPI Programmer.</li>
+        <li>Download BIOS update utility from HP Website</li>
+	<li>Extract the downloaded EXE file using BiosExtractor or other decompression tool</li>
+	<li>Decrypt the firmware using BIOSCreator.</li>
+	<li>Verify that the decrypted firmware has the correct file size.</li>
+	<li>If the firmware does not have the correct file size, continue processing the file by splitting the firmware into EC and System BIOS.</li>
+	<li>Verify the BID# to make sure one of the decrypted firmware is compatible with your laptop</li>
+	</li>Copy the DMI info from the old dump to the stock firmware.</li>
         </ol>
-    </div>
 <br>
-    <div>
         <h2>Example</h2>
-        <p>EC FIRMWARE/SYSTEM BIOS</p>
-        <div class="container" style="text-align:justify; margin-bottom:50px;">
-            <img src="../assets/images/tbu-acer.gif" class="center">
-        </div>
+        <p>Example 1 - HP Pavilion 14-AC137TX</p>
+	<p>Perform the firmware extraction similar to the process below. After the extraction process is completed, identify the BID# of the old fimrware dump to check which of the extracted firmware is exactly matched with your firmware dump.</p>
+        <img src="../assets/images/tbu-hp-ex1" class="center">
 
-        <p>SFX/BIOS REGION</p>
-        <div class="container" style="text-align:justify; margin-bottom:50px;">
-            <img src="../assets/images/tbu-acer-sfx-br.gif" class="center">
-        </div>
-
-        <p>SYSTEM BIOS</p>
-        <div class="container" style="text-align:justify; margin-bottom:50px;">
-            <img src="../assets/images/tbu-acer-sb.gif" class="center">
-        </div>
-
-        <p>ISFLASH/BIOS REGION</p>
-        <div class="container" style="text-align:justify; margin-bottom:50px;">
-            <img src="../assets/images/tbu-acer-isflash-br.gif" class="center">
-        </div>
-    </div>
+        <p>Example 2 - HP Notebook 14-DQ1037WM</p>
+	<p>Firmware extraction for this model is now working and available on version 2.1.3, and it is a fixed issue from version 2.1.2 .</p>
+        <img src="../assets/images/tbu-hp-ex2.gif" class="center">
 
     <a href="{{ site.baseurl }}/stock-firmware/acer" class="previous">&laquo; Previous</a>
     <a href="{{ site.baseurl }}/stock-firmware/lenovo" class="next">Next &raquo;</a>
