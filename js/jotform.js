@@ -4584,8 +4584,13 @@ var JotForm = {
                     }
                 });
             } else if (input && input.hasClassName("form-textarea") && input.up('div').down('.nicEdit-main')) {
-                var val = pair.value.replace(/\+/g, ' ').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                input.up('div').down('.nicEdit-main').update(val);
+                var isHtmlValue = /<([a-z][a-z0-9]*)\b[^>]*>(.*?)<\/\1>/i.test(pair.value);
+                var val = pair.value.replace(/\+/g, ' ');
+                if (isHtmlValue) {
+                    input.up('div').down('.nicEdit-main').update(val);
+                } else {
+                    input.up('div').down('.nicEdit-main').update(val.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+                }
             } else if (input && input.hasClassName("form-textarea") && input.up('div').down('.jfTextarea-editor')) {
                 input.up('div').down('.jfTextarea-editor').update(pair.value);
             } else if (input && input.hasClassName("form-dropdown")) {
@@ -13767,14 +13772,12 @@ var JotForm = {
         try {
             if (paymentField !== null && paymentField !== undefined && JotForm.isVisible(paymentField)) {
                 $$('.form-product-item').each(function (item) {
-                    if (!result) {
-                        return false;
-                    }
                     var productCheckbox = item.select('.form-product-input')[0];
                     if (productCheckbox !== undefined && productCheckbox.hasAttribute('checked') && productCheckbox.hasAttribute('disabled')) {
                         if (!JotForm.checkProductSelectionWithQuantity(item)) {
                             JotForm.errored(paymentField, 'The required product cannot be empty');
                             result = false;
+                            return false;
                         } else {
                             JotForm.corrected(paymentField);
                         }
@@ -14649,7 +14652,7 @@ var JotForm = {
                             // clear prior errors
                             $$('.form-card-error').invoke('remove');
                             var errorBox = new Element('div', {className: 'form-button-error form-card-error'});
-                            errorBox.insert('<li>' + errors + '</li>');
+                            errorBox.insert('<p>' + errors + '</p>');
                             $(lastButton.parentNode.parentNode).insert(errorBox);
                         }
                         JotForm.enableButtons();
@@ -15525,9 +15528,6 @@ var JotForm = {
                 }
             });
 
-            if (!JotForm.preventRequiredProductEmpty()){
-                ret = false;
-            }
 
             if (typeof window.ValidatePaymentGateways !== 'undefined' && !!document.querySelector('.form-pagebreak') && !!document.querySelector('[data-payment="true"]') && window.paymentType && JotForm.isVisible($$('[data-payment="true"]')[0])) {
                 ret = ValidatePaymentGateways.validate(JotForm.payment);
@@ -15565,7 +15565,9 @@ var JotForm = {
                     }
                 }
             }
-
+            if (!JotForm.preventRequiredProductEmpty()){
+                ret = false;
+            }
             _log('final ret value ' + ret);
             return ret;
         }
@@ -15785,7 +15787,7 @@ var JotForm = {
                 role: 'alert'
             });
 
-            errorBox.insert('<li>' + (typeof txt !== "undefined" ? txt : JotForm.texts.generalError) + '</li>');
+            errorBox.insert('<p>' + (typeof txt !== "undefined" ? txt : JotForm.texts.generalError) + '</p>');
 
             var buttonParentNode = button.parentNode.parentNode;
             $(buttonParentNode).insert(errorBox);
@@ -15862,7 +15864,7 @@ var JotForm = {
             var disableSubmitErrorMessageElement = jfCardElement && jfCardElement.querySelector('.jfCard-disableSubmitError');
             if(!jfCardElement || !disableSubmitErrorMessageElement) return;
 
-            disableSubmitErrorMessageElement.innerHTML = '<li>' + JotForm.disableSubmitButtonMessage + '</li>';
+            disableSubmitErrorMessageElement.innerHTML = '<p>' + JotForm.disableSubmitButtonMessage + '</p>';
             disableSubmitErrorMessageElement.style.display = JotForm.disableSubmitButton ? 'block' : 'none';
             if (JotForm.disableSubmitButton) {
                 jfCardElement.addClassName('jfCard-submitErrored');
