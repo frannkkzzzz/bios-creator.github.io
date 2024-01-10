@@ -394,7 +394,7 @@ header .navbar-default .navbar-nav li a:hover {
   text-align: center;
   padding: 24px;
   margin: 0 auto;
-  width: 700px;
+  width: auto;
 }
 #testimonial .testimonial-carousel img {
   padding-bottom: 38px;
