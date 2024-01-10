@@ -4,82 +4,117 @@ title: Pricing | BiosCreator
 permalink: /pricing/
 ---
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+			* {
+			  box-sizing: border-box;
+			}
+			
+			.columns {
+			  float: left;
+			  width: 33.3%;
+			  padding: 8px;
+			}
+			
+			.price {
+			  list-style-type: none;
+			  border: 1px solid #eee;
+			  margin: 0;
+			  padding: 0;
+			  -webkit-transition: 0.3s;
+			  transition: 0.3s;
+			}
+			
+			.price:hover {
+			  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+			}
+			
+			.price .header {
+			  background-color: #111;
+			  color: white;
+			  font-size: 25px;
+			}
+			
+			.price li {
+			  border-bottom: 1px solid #eee;
+			  padding: 20px;
+			  text-align: center;
+			}
+			
+			.price .grey {
+			  background-color: #eee;
+			  font-size: 20px;
+			}
+			
+			.button {
+			  background-color: #1b1b1a;
+			  border: none;
+			  color: white;
+			  padding: 10px 25px;
+			  text-align: center;
+			  text-decoration: none;
+			  font-size: 18px;
+			}
+			
+			@media only screen and (max-width: 600px) {
+			  .columns {
+				width: 100%;
+			  }
+			}
+			</style>
+			</head>
+			<body>
 <section class="pricing-table section bg-gray" style="padding: 100px 0px;
     background: $light;">
 	<div class="container">
-    <div class="container" style="text-align:center; margin-bottom:50px;">
-      <h2 class="pricing-h2">Find the perfect plan for your business</h2>
-      <p class="pricing-p">All plans include a lifetime license.</li>
-    </div>
-		<div class="row">
-			<!-- single pricing table -->
-			<div class="col-sm-5 col-md-6 mt-4 mt-md-0">
-				<div class="pricing-item text-center">
-					<!-- plan name & value -->
-					<div class="price-title">
-						<h3 class="pricing-title">USB EDITION</h3>
-						<strong class="pricing-value">₱6,000</strong>
-					</div>
-					<!-- /plan name & value -->
-
-					<!-- plan description -->
-					<ul>
-						<li class="p-description"> 1 User</li>
-						<li class="p-description"> 1 Year Update</li>
-            <li class="p-description"> 1 Year Support Subscription</li>
-						<li class="p-description"> Lifetime License</li>
-					</ul>
-					<!-- /plan description -->
-
-					<!-- Contact Us button -->
-          <div class="gstarted">
-            <div class="get-started" style="background:#8e8e8e;padding: 20px 0;border-radius: 0 0 2px 2px;">
-              <a class="btn btn-small g-sub" href="https://www.leakymosfet.com/products/bioscreator-v2-1-11-international-version">BUY</a>
-            </div>
-          </div>
-
-					<!-- /Contact Us button -->
-
-				</div>
+	<div class="container" style="text-align:center; margin-bottom:50px;">
+		<h2 class="pricing-h2">Find the perfect plan for your business</h2>
+		<p class="pricing-p">All plans include a lifetime license.</li>
+	</div>
+			
+			<div class="columns">
+			  <ul class="price">
+				<li class="header"  style="background-color:#04AA6D">FEATURES</li>
+				<li class="grey">PRICE</li>
+				<li>USERS</li>
+				<li>UPDATE/SUPPORT</li>
+				<li>LICENSE</li>
+				<li>DISABLE RAM/NVRAM TOOL</li>
+				<li>CORPORATE LAPTOPS PASSWORD UNLOCK</li>
+				<li>DMI TOOLS</li>
+				<li class="grey"><br></li>
+			  </ul>
 			</div>
-			<!-- end single pricing table -->
-
-			<!-- single pricing table -->
-			<div class="col-sm-5 col-md-6 mt-4 mt-md-0">
-				<div class="pricing-item text-center">
-
-					<!-- plan name & value -->
-					<div class="price-title">
-						<h3 class="pricing-title">COMPANY EDITION</h3>
-						<strong class="pricing-value">₱3,500</strong>
-					</div>
-					<!-- /plan name & value -->
-
-					<!-- plan description -->
-					<ul>
-						<li class="p-description"> 1 User</li>
-						<li class="p-description"> Lifetime Update</li>
-            <li class="p-description"> Lifetime Support Subscription</li>
-						<li class="p-description"> Lifetime License</li>
-					</ul>
-					<!-- /plan description -->
-
-					<!-- Contact Us button -->
-          <div class="gstarted">
-          <div class="get-started gstarted" style="background:#4a4a4a;padding: 20px 0;border-radius: 0 0 2px 2px;">
-					<a class="btn btn-small g-sub" href="https://www.leakymosfet.com/products/biosextractor?_pos=1&_sid=89a33ed6c&_ss=r&variant=31615058444361">BUY</a>
-          </div>
-          </div>
-          <!-- /Contact Us button -->
-
-				</div>
+			
+			<div class="columns">
+			  <ul class="price">
+				<li class="header">USB EDITION</li>
+				<li class="grey">₱6,000</li>
+				<li>1 USER</li>
+				<li>1 YEAR UPDATE/SUPPORT</li>
+				<li>LIFETIME LICENSE</li>
+				<li>&#10004;</li>
+				<li>&#10004;</li>
+				<li>&#10004;</li>
+				<li class="grey"><a href="https://www.leakymosfet.com/products/bioscreator-v2-1-11-international-version" class="button">BUY NOW</a></li>
+			  </ul>
 			</div>
-			<!-- end single pricing table -->
-
-
-		</div> <!-- End row -->
-	</div> <!-- End container -->
-</section> <!-- End section -->
+			
+			<div class="columns">
+			  <ul class="price">
+				<li class="header">PC EDITION</li>
+				<li class="grey">₱3,500</li>
+				<li>1 USER</li>
+				<li>1 YEAR UPDATE/SUPPORT</li>
+				<li>LIFETIME LICENSE</li>
+				<li>&#x2715;</li>
+				<li>&#x2715;</li>
+				<li>&#x2715;</li>
+				<li class="grey"><a href="https://www.leakymosfet.com/products/biosextractor?_pos=1&_sid=89a33ed6c&_ss=r&variant=31615058444361" class="button">BUY NOW</a></li>
+			  </ul>
+			</div>
+			</div>
+		</section>
+		
 <section class="faq section-sm" style=" margin-bottom: 100px;">
 	<div class="container">
 		<div class="row">
@@ -94,8 +129,8 @@ permalink: /pricing/
 				<li>All major credit cards are accepted. You can also pay through Paypal Checkout Express.</li>
 			</div>
 			<div style="padding:25px 0;">
-				<h4>Do you have support forum to help me out if I encounter any difficulty?</h4>
-				<li>Yes, we have Our official support forum, you can email us at <a href="mailto: cs@bioscreator.com">cs@bioscreator.com</a> or join our discord server at <a href="https://discord.gg/DjZdaYtFQ2">discord channel</a>.</li>
+				<h4>Do you have discord channel to help me out if I encounter any difficulty?</h4>
+				<li>Yes, we have our official discord channel, you can email us at <a href="mailto: cs@bioscreator.com">cs@bioscreator.com</a> or join our discord server at <a href="https://discord.gg/DjZdaYtFQ2">discord channel</a>.</li>
 			</div>
       </div>
       <div class="col-md-6 col-sm-12 question">
@@ -105,7 +140,7 @@ permalink: /pricing/
 			</div>
 			<div style="padding:25px 0;">
 				<h4>Questions?</h4>
-				<li>Contact us for any further questions at <a href="mailto: sales@leakymosfet.com.com">sales@leakymosfet.com</a>.</li>
+				<li>Contact us for any further questions at <a href="mailto: cs@bioscreator.com">cs@bioscreator.com</a>.</li>
 			</div>
       </div>
 		</div>
