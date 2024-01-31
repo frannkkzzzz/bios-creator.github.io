@@ -14,10 +14,10 @@ keep_files:
 # Site settings
 title: BiosCreator
 subtitle: "Stock Firmwware Builder"
-url: "http://bios-creator.github.io"
+url: "https://www.bioscreator.com"
  # the base hostname & protocol for your site
 # baseurl: "/the/subpath/of/your/site" # Set this value to "" if you want your site to be root
-baseurl: "/bios-creator"
+baseurl: ""
 cover: "/assets/cover.png"
 logo: "/assets/logo.png"
 
