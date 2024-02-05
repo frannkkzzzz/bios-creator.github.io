@@ -40,9 +40,9 @@ onload="if(submitted) {location.href = 'https://frannkkzzzz.github.io/bios-creat
     <div class="row form-group">
       <div class="col-md-12">
         <div class="f-name">
-          <label class="text-black contact-label" for="email">Email Address</label>
+          <label for="emailField">Email Address</label>
         </div>
-          <input type="email" placeholder="Email" name="entry.1045781291" required class="form-control">
+          <input type="email" id="emailField" placeholder="Email" name="entry.1045781291" required class="form-control">
       </div>
     </div>
 
@@ -69,6 +69,14 @@ onload="if(submitted) {location.href = 'https://frannkkzzzz.github.io/bios-creat
 
   <button class="sub-btn type="submit">Submit</button>
 </form>
+
+<div style="display: none">Powered by Verifalia <a href="https://verifalia.com/">email verifier</a></div>
+<script defer
+  src="https://unpkg.com/verifalia-widget@1.10.0/dist/verifalia-widget.js"
+  data-verifalia-appkey="db50513175c64aedb8f2bca2ab984389"
+  integrity="sha512-Byn2sawjqjYOq9vwcSZdb8ncm3h3B4EmeyQ5hM035sShmwzv58/LdwACNmzJnkmILKvEvavSvdI6HaHy8FJWvg=="
+  crossorigin="anonymous"></script>
+
 </div>
 
 <div id="contact-box" class="row">
