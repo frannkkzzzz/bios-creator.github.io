@@ -1,0 +1,69 @@
+---
+layout: page
+title: Download | BiosCreator
+permalink: /download/
+---
+<style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section class="pricing-table section bg-gray bg-ty" style="padding: 100px 0px;">
+	<div class="container">
+    <div class="container bg-con">
+      <img src="../img/ty.png" class="center" >
+        <div class="download-container">
+          <br>
+          <a href="#" class="download-btn">Download Files <i class="fa fa-download"></i></a>
+          <div class="countdown"></div>
+            <div class="pleaseWait-text">Please Wait....</div>
+            <div class="manualDownload-text">
+              if the download didn't start automatically. <a href="" class="manualDownload-link">click here</a>
+            </div>
+        </div>
+<br>
+<p><b>If you want to know how to use BiosCreator, you can go to our <a href="https://youtube.com/@leakymosfet3870?si=x1gHFY8mlImx3qog" target="_blank">Youtube</a> Channel at LeakyMosfet Channel and watch our videos to know how to use BiosCreator.</b></p>
+    </div>
+		<div class="row">
+
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+<script>
+//for bioscreator file autodownload
+ 
+const downloadBtn = document.querySelector(".download-btn");
+const countdown = document.querySelector(".countdown");
+const pleaseWaitText = document.querySelector(".pleaseWait-text");
+const manualDownloadText = document.querySelector(".manualDownload-text");
+const manualDownloadLink = document.querySelector(".manualDownload-link");
+var timeLeft = 1;
+
+downloadBtn.addEventListener("click", () => {
+  downloadBtn.style.display = "none";
+  
+
+  var downloadTimer = setInterval(function timeCount(){
+    timeLeft -= 1;
+    
+
+    if(timeLeft <= 0){
+      clearInterval(downloadTimer);
+      pleaseWaitText.style.display = "block";
+      let download_href = "{{ site.baseurl }}/download-file/BiosCreator.rar";
+      window.location.href = download_href;
+      manualDownloadLink.href = download_href;
+
+      setTimeout(() => {
+        pleaseWaitText.style.display = "none";
+        manualDownloadText.style.display = "block";
+      }, 4000);
+    }
+  }, 1000);
+});
+</script>

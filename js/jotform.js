@@ -2452,71 +2452,6 @@ var JotForm = {
 
             inputContainer.insertAdjacentHTML('afterbegin', rawInput);
             inputContainer.insertAdjacentHTML('beforeend', fileListMarkup);
-        });;
-    },
-
-    /* Initiate new multi upload */
-    initNewMultipleUploads: function () {
-        var self = this;
-
-        $$('.form-upload-multiple-new').each(function (file) {
-            var parent = file.up('div');
-            var f = JotForm.getForm(file);
-            var formID = f.formID.value;
-            var uniq = formID + "_" + JotForm.uniqueID;
-
-            // Handle default validations. reuired field
-            var className = file.className;
-            if (className.include("validate[required]")) {
-                if (parent.className.indexOf("validate[required]") === -1) {
-                    parent.addClassName("validate[required]");
-                }
-                parent.validateInput = function () {
-                    var _isVisible = JotForm.isVisible(parent);
-                    if (JotForm.doubleValidationFlag()) {
-                        _isVisible = !(JotForm.isInputAlwaysHidden(parent));
-                    }
-                    // Don't fire validations for hidden elements
-                    if (!_isVisible) {
-                        JotForm.corrected(parent);
-                        return true;
-                    }
-                    if (parent.select('.new-file-list li').length < 1) {
-                        JotForm.errored(parent, JotForm.texts.required);
-                        return false;
-                    } else {
-                        JotForm.corrected(parent);
-                        return true;
-                    }
-                };
-            }
-
-            // Create temp upload folder key
-            if (!JotForm.tempUploadFolderInjected) {
-                var hidden = new Element('input', {type: 'hidden', name: 'temp_upload_folder'}).setValue(uniq);
-                f.insert({top: hidden});
-                JotForm.tempUploadFolderInjected = true;
-                window.setFolder();
-            }
-
-            // Handle limited extensions
-            var exts = (file.readAttribute('data-file-accept') || file.readAttribute('file-accept') || "").strip();
-            exts = (exts !== '*') ? exts.split(', ') : [];
-
-            // Handle sublabels
-            var n, subLabel = "";
-            if ((n = file.next()) && n.hasClassName('form-sub-label')) {
-                subLabel = n.innerHTML;
-            }
-
-            //Emre: to make editing "text of multifile upload button" possible (33318)
-            var m, buttonText;
-            if (m = file.previous('.qq-uploader-buttonText-value')) {
-                buttonText = m.innerHTML;
-            }
-            if (!buttonText) {
-                buttonText = "Upload a File";
-            }
         });
     },
 
@@ -8414,6 +8349,7 @@ var JotForm = {
         var weeksMS = daysMS * 7;
         var monthsMS = daysMS * 30;
         var yearsMS = daysMS * 365;
+        var copyZero = typeof calc.allowZeroCopy === 'string' ? calc.allowZeroCopy === '1' : calc.allowZeroCopy;
 
         var calculate = function (equation, numeric) {
             var out = '';
@@ -8611,7 +8547,17 @@ var JotForm = {
                                     out += args[0];
                                 }
                             } else {
-                                out += acceptableFunctions[specOp].apply(undefined, args);
+                                var tempValue = acceptableFunctions[specOp].apply(undefined, args);
+
+                                if (specOp === 'pow') { // This check can be removed and this fix can be applied to all mathematical functions but I'm not sure yet.
+                                    if (typeof BigInt === 'function' && tempValue > Number.MAX_SAFE_INTEGER) { // Only try to use BigInt if the number is bigger than the MAX_SAFE_INTEGER constant.
+                                        tempValue = BigInt(tempValue).toString();
+                                    } else if (tempValue < 1 && copyZero) {
+                                        tempValue = tempValue.toFixed(calc.decimalPlaces);
+                                    } else { /* Leave it as it is. */ }
+                                }
+
+                                out += tempValue;
                             }
 
                         } else if (specOp === 'random') {
@@ -8646,7 +8592,7 @@ var JotForm = {
         };
 
         var output = calculate(calc.equation);
-        if (!(typeof output== "string" && output.length > 1) && (!calc.allowZeroCopy && parseFloat(output) === 0) && $('input_' + result) && ($('input_' + result).readAttribute('defaultValue') != null || $('input_' + result).readAttribute('data-defaultvalue') != null)) {
+        if (!(typeof output== "string" && output.length > 1) && ((typeof calc.allowZeroCopy === 'string' ? calc.allowZeroCopy !== '1' : !calc.allowZeroCopy) && parseFloat(output) === 0) && $('input_' + result) && ($('input_' + result).readAttribute('defaultValue') != null || $('input_' + result).readAttribute('data-defaultvalue') != null)) {
             output = $('input_' + result).readAttribute('defaultValue') || $('input_' + result).readAttribute('data-defaultvalue');
         }
 
@@ -10559,6 +10505,82 @@ var JotForm = {
         };
     },
 
+    getSelectedSubscription: function () {
+        const products = document.querySelectorAll(window.FORM_MODE === 'cardform' ? '.product--subscription' : '.form-product-item');
+        const productInputSelector = window.FORM_MODE === 'cardform' ? '.radioProduct-input' : '.form-product-input';
+        const selectedSub = products && Array.from(products).find(product => product.querySelector(productInputSelector).checked);
+        if (!selectedSub) { return {}; }
+
+        const pid = selectedSub.getAttribute(window.FORM_MODE === 'cardform' ? 'data-pid' : 'pid');
+        const customInputs = selectedSub.querySelectorAll('.form-product-custom_price');
+        const subscription = { [pid]: { 0: { quantity: '1' } } };
+        Array.from(customInputs).forEach(input => {
+            if (input.id.includes('_custom_first_payment_price')) { subscription[pid][0].firstPayment = input.value; }
+            if (input.id.includes('_custom_price')) { subscription[pid][0].price = input.value; }
+        });
+
+        return subscription;
+    },
+
+    getTaxSurchargeData: function () {
+        if (!JotForm.surchargeFieldId) { return {}; }
+
+        const qid = JotForm.surchargeFieldId;
+        const inputs = document.querySelectorAll(`#id_${qid} input, #id_${qid} select`);
+        const val = Array.from(inputs).reduce((inputs, currentInput) => { return { ...inputs, [currentInput.getAttribute('data-component')]: currentInput.value } }, {});
+        return { [qid]: val };
+    },
+
+    getSelectedProductInputs: function () {
+        const items = document.querySelectorAll('.form-product-item');
+        let selectedProducts = [];
+
+        for (let i = 0; i < items.length; i++) {
+            const pid = items[i].getAttribute(window.FORM_MODE === 'cardform' ? 'data-pid' : 'pid');
+            let inputClass = '.form-product-input';
+            if (window.FORM_MODE === 'cardform') {
+                inputClass = items[i].querySelector('input.radioProduct-input') ? '.radioProduct-input' : '.checkboxProduct-input';
+            }
+            const productInput = items[i].querySelector(inputClass);
+
+            if (productInput && productInput.checked && !items[i].classList.contains('sold_out_product')) {
+                if (productInput.classList.contains('form-product-has-subproducts')) {
+                    const itemPrices = Object.values(JotForm.prices).filter(price => price.quantityField && price.quantityField.includes(`quantity_${pid}`));
+
+                    const selectedProduct = itemPrices.reduce((acc, currentPrice) => {
+                        const quantityVal = document.getElementById(currentPrice.quantityField).value;
+                        if (Number(quantityVal) <= 0) { return acc; }
+
+                        const customOptionValues = Object.entries(currentPrice).reduce((accumulator, p) => p[0].includes('customField_') || p[0].includes('quantityField') ? [...accumulator, document.getElementById(p[1]).value] : accumulator, []);
+                        customOptionValues.splice(currentPrice.expandedValueIndex, 0, currentPrice.expandedValue);
+
+                        return [...acc, { customOptionValues, quantity: quantityVal }]
+                    }, []);
+
+                    if (Object.entries(selectedProduct).length > 0) {
+                        selectedProducts = [...selectedProducts, { [pid]: selectedProduct }];
+                    }
+                } else {
+                    const productInputData = JotForm.prices[productInput.id];
+                    if (!productInputData) {
+                        continue;
+                    }
+
+                    const customOptionValues = Object.entries(productInputData).reduce((accumulator, p) => p[0].includes('custom_') || p[0].includes('quantityField') ? [...accumulator, document.getElementById(p[1]).value] : accumulator, []);
+                    if (customOptionValues.length === 0) { customOptionValues.push('1'); }
+
+                    let selectProductQuantity = 1;
+                    if (typeof productInputData.quantityField !== 'undefined') {
+                        selectProductQuantity = document.getElementById(productInputData.quantityField).value;
+                    }
+
+                    selectedProducts = [ ...selectedProducts, { [pid]: { 0: { customOptionValues, quantity: selectProductQuantity } } } ];
+                }
+            }
+        }
+        return selectedProducts;
+    },
+
     clearProductValues: function (el, optionValues) {
         $$('#' + el.id + '_subproducts select,' + '#' + el.id + '_subproducts input[type="text"]').each(function (field, i) {
             // capture the values
@@ -11066,6 +11088,7 @@ var JotForm = {
                 taxRate = parseFloat(tax.rate) || 0;
                 var locationField = $$('select[id*="input_' + tax.surcharge.field + '"], input#input_' + tax.surcharge.field)[0] || false;
                 if (locationField && !!locationField.value) {
+                    JotForm.surchargeFieldId = tax.surcharge.field.split('_')[0];
                     $H(tax.surcharge.rates).each(function (rate) {
                         if (typeof rate.value === 'object') {
                             var location = rate.value[1],
@@ -11411,7 +11434,8 @@ var JotForm = {
                 tax_total: taxTotal,
                 shipping: shipping,
                 discount: discount,
-                currency: currency
+                currency: currency,
+                subtotal: subTotal
             }
         };
 
@@ -11556,7 +11580,7 @@ var JotForm = {
                 var prodID = $(el).id.match(/input_([0-9]*)_quantity_/) || $(el).id.match(/input_([0-9]*)_custom_/);
                 setTimeout(function () {
 
-                    if (prodID && $('id_' + prodID[1])) {
+                    if (prodID && $('id_' + prodID[1]) && typeof $('id_' + prodID[1]).triggerEvent === 'function') {
                         $('id_' + prodID[1]).triggerEvent('click');
                     }
 
@@ -14245,7 +14269,7 @@ var JotForm = {
         var page = page || document.get.jumpToPage;
         var sections = Array.from(document.querySelectorAll('.form-section:not([id^=section_])'));
         var currentSection = sections[page - 1];
-        if (!(page && page > 1) || page > sections.length) return; //no page to jump to
+        if (!(page && page > 0) || page > sections.length) return; //no page to jump to
 
         for (var i = 0; i < sections.length; i++) {
             JotForm.hideFormSection(sections[i]);
@@ -14456,7 +14480,7 @@ var JotForm = {
                         openBar.closed = true;
                     }
                     openBar = section;
-                    section.style.overlfow = 'hidden';
+                    section.style.overflow = 'hidden';
                     section.style.height = `${height}px`;
 
                     // Wait for focus
@@ -16157,6 +16181,54 @@ var JotForm = {
                         }
                     });
                 }
+
+                if (
+                    window.location.href.includes('sumer.jotform.pro')
+                    || window.location.href.includes('sevkialacatli.jotform.pro')
+                    || window.location.href.includes('meliskaya.jotform.pro')
+                ) {
+                    if (JotForm.newPaymentUI) {
+                        if (window.paymentType === 'product') {
+                            form.insert(new Element('input', {
+                                type: 'hidden',
+                                name: 'surchargeData'
+                            }).putValue(JSON.stringify(JotForm.getTaxSurchargeData())));
+                            form.insert(new Element('input', {
+                                type: 'hidden',
+                                name: 'selectedProductsList'
+                            }).putValue(JSON.stringify(JotForm.getSelectedProductInputs())));
+                        }
+                        if (window.paymentType === 'subscription') {
+                            form.insert(new Element('input', {
+                                type: 'hidden',
+                                name: 'selectedSubscription'
+                            }).putValue(JSON.stringify(JotForm.getSelectedSubscription())));
+                        }
+                        if (!!JotForm.donationField) {
+                            form.insert(new Element('input', {
+                                type: 'hidden',
+                                name: 'donationValue'
+                            }).putValue(JSON.stringify({ price: JotForm.donationField.value })));
+                        }
+                    }
+                    if (JotForm.pricingInformations && JotForm.pricingInformations.general) {
+                        const paymentSummary = {
+                            total_amount: JotForm.pricingInformations.general.total_amount,
+                            item_total: JotForm.pricingInformations.general.item_total,
+                            subtotal: JotForm.pricingInformations.general.subtotal,
+                            net_amount: JotForm.pricingInformations.general.net_amount,
+                            discount: JotForm.pricingInformations.general.discount,
+                            tax_total: JotForm.pricingInformations.general.tax_total,
+                            shipping: JotForm.pricingInformations.general.shipping,
+                            shippingDiscountVal: JotForm.pricingInformations.general.shippingDiscountVal
+                        };
+                        form.insert(new Element('input', {
+                            type: 'hidden',
+                            name: 'paymentSummary'
+                        }).putValue(JSON.stringify(paymentSummary)));
+                    }
+                }
+
                 var numberOfInputs = form.querySelectorAll('.form-all input, select').length;
                 var blueSnapLimit = JotForm.payment === 'bluesnap' && numberOfInputs > 1000;
                 if (numberOfInputs > 3000 || blueSnapLimit){ // to bypass max_input_vars - 3000 limit
@@ -17165,6 +17237,45 @@ var JotForm = {
                             return JotForm.corrected(input);
                         }
 
+                        if (JotForm.paymentTotal === 0 && JotForm.payment === 'paypalcomplete' && cont.getAttribute('data-type') === 'control_paymentmethods') {
+                            var selectedProducts = [];
+                            var fullDiscountedProducts = [];
+                            var discountTypes = ['100.00-percent', '100-percent']; // for only 100% discount coupons
+                            var productSelectClass = window.FORM_MODE === 'cardform' ? 'product--selected' : 'p_selected';
+                            if (JotForm.couponApplied && JotForm.discounts && Object.keys(JotForm.discounts).length > 0) {
+                                // set selected products
+                                Object.values(document.getElementsByClassName(productSelectClass)).forEach(function(value) {
+                                    if (typeof value === 'object' && value && value.getAttribute('pid')) {
+                                        selectedProducts.push(value.getAttribute('pid'));
+                                    }
+                                });
+                                if (selectedProducts && selectedProducts.length > 0) {
+                                    // set full discounted products
+                                    Object.values(selectedProducts).forEach(function (el) {
+                                        // if selected product id is in discounted product ids and discount type of the selected product is %100(percent)
+                                        // TODO:: add fixed price full discount check
+                                         if (JotForm.discounts[el] && discountTypes.includes(JotForm.discounts[el])) {
+                                            fullDiscountedProducts.push(el);
+                                        }
+                                    });
+                                    // compare selected products and full discounted products
+                                    if (fullDiscountedProducts.length === selectedProducts.length) {
+                                        fullDiscountedProducts.sort();
+                                        selectedProducts.sort();
+                                        var totalFullDiscount = true;
+                                        for (let i = 0; i < fullDiscountedProducts.length; i++) {
+                                            if (fullDiscountedProducts[i] !== selectedProducts[i]) {
+                                                totalFullDiscount = false;
+                                            }
+                                        }
+                                        if (totalFullDiscount) {
+                                            return JotForm.corrected(input);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         if (checkValues.any()) {
                             // override required validation if payment item is selected and total is zero
                             if (JotForm.payment && cont.getAttribute('data-type').match(JotForm.payment)){
@@ -17348,8 +17459,8 @@ var JotForm = {
                     }
                     break;
                 case "Fill Mask":
-                    if (input.readAttribute("data-masked") == "true" && !jQuery(input).inputmask("isComplete")) {
-                        if (!!input.value && input.value !== input.readAttribute('maskvalue').replace(/\#|\@/g, '_')) {
+                    if (input.dataset.masked == "true" && !input?.inputmask?.isComplete()) {
+                        if (!!input.value && input.value !== input.attributes.maskValue?.value.replace(/\#|\@/g, '_')) {
                             return JotForm.errored(input, JotForm.texts.fillMask, dontShowMessage);
                         }
                     }
@@ -18529,35 +18640,31 @@ var JotForm = {
                 }
             }
 
-            var jqObject = jQuery(toSelector);
+            var maskedInput = document.querySelector(toSelector);
+            if (!maskedInput) {
+                return;
+            }
 
             //initiate masking for phones.
-            if (unmask && jqObject) {
-                jqObject.inputmask('remove')
-                    .off('blur')
-                    .attr('placeholder', '');
+            if (unmask) {
+                Inputmask.remove(maskedInput);
+                maskedInput.placeholder = '';
+                return;
             }
-            else if (jqObject) {
-              setTimeout(function(){
-                jqObject.inputmask('remove');
-                jqObject.inputmask(maskValue, {
-                  placeholder: "_",
-                  autoclear: false,
-                  definitions: definitions,
-                  inputEventOnly: true
-                })
-                  // trigger change event on input
-                  .on('input', function(e) { e.target.triggerEvent('change'); })
-                  .attr('maskValue', maskValue)
 
-                if (jqObject.val()) {
-                    var caretPos = jqObject.val().indexOf('_');
-                    if (jqObject && jqObject.caret) {
-                        jqObject.caret(caretPos);
-                    }
-                }
-              },0)       
-            }
+            setTimeout(() => {
+                Inputmask.remove(maskedInput);
+                Inputmask({
+                    placeholder: '_',
+                    autoclear: false,
+                    definitions,
+                    mask: maskValue,
+                    inputEventOnly: true
+                }).mask(maskedInput);
+    
+                maskedInput.setAttribute('maskValue', maskValue);
+                 maskedInput.addEventListener('input', e => e.target.dispatchEvent(new Event('change')));
+            }, 0);
         } catch (error) {
             console.log(error);
         }
@@ -20870,7 +20977,16 @@ function addEncryptionKeyToForm(encryptionKey) {
 }
 
 function attachScrollToCaptcha(form) {
-    const target = document.querySelector('div:not(.grecaptcha-logo) > iframe[src*="google.com/recaptcha"]')?.parentElement?.parentElement;
+    let target;
+    const targetParent = document.querySelector('div:not(.grecaptcha-logo) > iframe[src*="google.com/recaptcha"]');
+
+    if (targetParent !== null && targetParent !== undefined) {
+        const parentElement = targetParent.parentElement;
+        if (parentElement !== null && parentElement !== undefined) {
+            target = parentElement.parentElement;
+        }
+    }
+
     if (!target) {
         console.log("couldn't find recaptcha element");
         return;
