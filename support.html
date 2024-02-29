@@ -3,20 +3,93 @@ layout: page
 title: Support | BiosCreator
 permalink: /support/
 ---
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | BiosCreator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Adding a subtle gradient background */
+            background: linear-gradient(to right, #e9effa, #e9effa);
+            color: #333;
+        }
+        .section {
+            padding: 50px 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1, h3 {
+            margin: 0 0 20px 0;
+            padding: 0;
+        }
+        h1 strong {
+            color: #7289da;
+        }
+        .btn-discord a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #7289da;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn-discord a:hover {
+            background-color: #5b6eae;
+        }
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                transform: translate3d(0, 40px, 0);
+                opacity: 0;
+            }
+            to {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+        /* Support Icon */
+        .support-icon {
+            font-size: 80px;
+            color: #7289da;
+            animation: spin 5s linear infinite;
+            margin: 20px 0;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
 <section class="support section bg-gray">
-	<div class="container">
-    <div class="container" style="text-align:center; margin-bottom:50px;">
-      <h2 class="join">Need more assistance? Join us at Discord</h2>
-      <p>If you have any concerns regarding in BiosCreator, contact us on our Discord Channel.</p>
-      <div class="btn-discord">
-        <a href="https://discord.gg/DjZdaYtFQ2" target=”_blank>LeakyMosfet Discord</a>
-      </div>
-
+    <div class="container">
+        <i class="fas fa-headset support-icon animated fadeInUp"></i>
+        <h1 class="animated fadeInUp" style="font-size: 60px;">Welcome to BiosCreator <strong>Support</strong></h1>
+        <h3 class="animated fadeInUp" style="font-size: 50px;">Need more assistance? Join us at Discord</h3>
+        <p>If you have any concerns regarding BiosCreator, contact us on our Discord Channel.</p>
+        <div class="btn-discord">
+            <a href="https://discord.gg/DjZdaYtFQ2" target="_blank">LeakyMosfet Discord</a>
+        </div>
     </div>
-		<div class="row">
-
-		</div> <!-- End row -->
-	</div> <!-- End container -->
-</section> <!-- End section -->
-
+</section>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

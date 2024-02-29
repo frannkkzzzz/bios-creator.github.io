@@ -4,11 +4,44 @@ title: Features | BiosCreator
 permalink: /features/
 ---
 <style>
-  .head .header {
-    color: white;
-    background-color: #04AA6D;
-	  font-size: 25px;
-	}
+ 
+.head .header {
+  color: white;
+  background-color: #04AA6D;
+  font-size:25px;
+  transition: background-color 0.3s ease;
+
+}
+
+.head .header:hover {
+  background-color: #008040;
+}
+
+.light-text {
+  color: #888;
+  text-align: justify;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  margin-right: 100px;
+  margin-top: 60px; 
+  margin-bottom: 50px; 
+  }
+
+.light-text:hover {
+  color: #444;
+}
+.collapse {
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+  max-height: 0; 
+  .standard-tools, .uefi-firmware-tools, .stock-firmware-tools {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.standard-tools:hover, .uefi-firmware-tools:hover, .stock-firmware-tools:hover {
+  color: #007bff; /
+}
+
 </style>
 <section class="pricing-table section bg-gray" style="">
 	<div class="container">
@@ -17,20 +50,29 @@ permalink: /features/
       <table class="table table-responsive table-hover">
         <thead>
           <tr class="head">
-            <th class="header" >FEATURES</th>
+            <th class ="header" style="width: 50%;"> FEATURES </th>
             <th class="header" >USB EDITION</th>
             <th class="header" >PC EDITION</th>
           </tr> 
         </thead>
         <tbody>
           <tr data-toggle="collapse" id="row1" data-target=".row1">
-            <td><h4> STANDARD TOOLS</h4></td>
+            <td>
+            <h4 class="standard-tools" onclick="toggleTransition(this)"> STANDARD TOOLS</h4>
+            </td>
             <td>&#10004;</td>
             <td>&#10004;</td>
+            </td>
+            </tr>
           </tr>
           <tr class="collapse row1">
-            <td></td>
+            
             <td>
+              <p class="light-text">This list outlines various tools and resources for firmware modification, system diagnostics, and hardware compatibility, tailored for different platforms
+                 including MacBooks, Chromebooks, and systems requiring BIOS or EC firmware adjustments.</p>
+            </td>
+            <td>
+
             <h4> EC Firmware Tools</h4> 
             <h4> Split EC/System BIOS</h4> 
             <h4> Macbook Tools</h4> 
@@ -38,6 +80,7 @@ permalink: /features/
             <h4> Chromebook</h4> 
             <h4> Compatible SPI Chips</h4> 
             <h4> Disable RAM</h4> 
+
             </td>
             <td>
               <h4> EC Firmware Tools</h4> 
@@ -48,14 +91,21 @@ permalink: /features/
               <h4> Compatible SPI Chips</h4>  
             </td>   
           </tr>
-
+              
+</tr>
+</tr>
           <tr data-toggle="collapse" id="row2" data-target=".row2">
             <td><h4>UEFI FIRMWARE TOOLS</h4></td>
             <td>&#10004;</td>
             <td>&#10004;</td>
           </tr>
           <tr class="collapse row2">
-            <td></td>
+            <td>
+               <p class="light-text" >This list comprises tools for managing and modifying UEFI firmware, 
+              including functionality for extracting, merging, and editing various 
+              firmware regions like FD, ME/TXE, BIOS, EC, and GbE.</p>
+            </td>
+    
             <td>
             <h4>FD Region</h4>
             <h4>ME/TXE Region</h4>
@@ -82,7 +132,9 @@ permalink: /features/
             <td>&#10004;</td>
           </tr>
           <tr class="collapse row3">
-            <td></td>
+
+            <td><p class="light-text" style="text-align: justify;">This list includes tools specific to the downloading and managing of stock firmware for a wide range of manufacturers,
+     including ACER, HP, LENOVO, and others,facilitating official software updates and system restorations.</p></td>
             <td>
             <h4>ACER</h4>
             <h4>HP</h4>
@@ -126,7 +178,11 @@ permalink: /features/
             <td>&#x2715;</td>
           </tr>
           <tr class="collapse row4">
-            <td></td>
+            <td><p class="light-text";>
+              These tools offer the ability to generate master passwords 
+              for unlocking various laptop models like Lenovo ThinkPads, 
+              HP EliteBooks, Dell Latitude, and Microsoft Surface Pro devices.
+            </p></td>
             <td>
             <h4>Master Password Gen</h4>
             <h4>Lenovo Thinkpads</h4>
@@ -145,7 +201,10 @@ permalink: /features/
             <td>&#x2715;</td>
           </tr>
           <tr class="collapse row5">
-            <td></td>
+            <td><p class="light-text">
+              These tools provide DMI (Desktop Management Interface) information for HP systems and HP Elitebooks,
+               with some models not supported.
+            </p></td>
             <td>
             <h4>HP</h4>
             <h4>HP Elitebooks</h4>
@@ -161,7 +220,10 @@ permalink: /features/
             <td>&#10004;</td>
           </tr>
           <tr class="collapse row7">
-            <td></td>
+            <td><p class="light-text">These download tools are designed to facilitate obtaining software,
+             drivers, and updates for a variety of devices from manufacturers
+             like Apple, Acer, Dell, HP, Lenovo, and others.</p>
+          </td>
             <td>
             <h4>APPLE</h4>
             <h4>ACER</h4>
