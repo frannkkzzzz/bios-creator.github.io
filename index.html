@@ -235,9 +235,28 @@ permalink: /
   s1.charset='UTF-8';
   s1.setAttribute('crossorigin','*');
   s0.parentNode.insertBefore(s1,s0);
+
+  Tawk_API.onChatMessageSend = function(message) {
+    // Construct the message to send to Discord
+    var discordMessage = {
+      content: `New message from Tawk.to chat:\n**Message:** ${message.message}\n**From:** ${message.name} (${message.email})`
+    };
+
+    // Send the message to Discord
+    fetch('https://discord.com/api/webhooks/1257507821008719884/XW_Q4035LhCIyuCm844g1e3jHfe0r_VSIty4lsxczej3QTHrBMNpP51Y7O_q6KEuINXc', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(discordMessage)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch((error) => console.error('Error:', error));
+  };
   })();
-  </script>
-  <!--End of Tawk.to Script-->
+</script>
+<!--End of Tawk.to Script-->
 
 <script>
   //for testimonial slider
