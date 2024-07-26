@@ -3,7 +3,46 @@ layout: page
 title: Features | BiosCreator
 permalink: /features/
 ---
-<link rel="stylesheet" type="text/css" href="/css/features.css">
+<style>
+ 
+.head .header {
+  color: white;
+  background-color: #04AA6D;
+  font-size:25px;
+  transition: background-color 0.3s ease;
+
+}
+
+.head .header:hover {
+  background-color: #008040;
+}
+
+.light-text {
+  color: #888;
+  text-align: justify;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  margin-right: 100px;
+  margin-top: 60px; 
+  margin-bottom: 50px; 
+  }
+
+.light-text:hover {
+  color: #444;
+}
+.collapse {
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+  max-height: 0; 
+  .standard-tools, .uefi-firmware-tools, .stock-firmware-tools {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.standard-tools:hover, .uefi-firmware-tools:hover, .stock-firmware-tools:hover {
+  color: #007bff; /
+}
+</style>
+
 <body>
 <section class="pricing-table section bg-gray" style="">
 	<div class="container">
@@ -220,8 +259,8 @@ permalink: /features/
   <br>
   <br>
 
-<!-- Facebook Messenger m.me Link as a Creative Fixed Button -->
-<a href="https://m.me/2749304591960661" target="_blank" id="messenger-button">
+ <!-- Facebook Messenger m.me Link as a Creative Fixed Button -->
+ <a href="https://m.me/2749304591960661" target="_blank" id="messenger-button">
   <div class="button-content">
     <img src="/img/messenger.png" alt="Messenger Icon">
     <span>Chat with us in Messenger</span>
@@ -229,8 +268,8 @@ permalink: /features/
 </a>
 
 <style>
-/* Fixed Positioning for the Button */
-#messenger-button {
+  /* Fixed Positioning for the Button */
+  #messenger-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -302,4 +341,5 @@ permalink: /features/
     }
   }
 </style>
+
 </body>

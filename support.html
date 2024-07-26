@@ -6,11 +6,69 @@ permalink: /support/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/css/support.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support | BiosCreator</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+       
+        .section {
+            padding: 50px 0;
+        }
+        .container {
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1, h3 {
+            margin: 0 0 20px 0;
+            padding: 0;
+        }
+        h1 strong {
+            color: #7289da;
+        }
+        .btn-discord a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #7289da;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn-discord a:hover {
+            background-color: #5b6eae;
+        }
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                transform: translate3d(0, 40px, 0);
+                opacity: 0;
+            }
+            to {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+        /* Support Icon */
+        .support-icon {
+            font-size: 80px;
+            color: #7289da;
+            animation: spin 5s linear infinite;
+            margin: 20px 0;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
 <section class="support section bg-gray">
@@ -35,6 +93,81 @@ permalink: /support/
       <span>Chat with us in Messenger</span>
     </div>
   </a>
+
+  <style>
+    /* Fixed Positioning for the Button */
+    #messenger-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(45deg, #0078FF, #005BBB);
+      border-radius: 50px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-decoration: none;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000; /* Ensure button is on top of other elements */
+    }
+
+    #messenger-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    .button-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .button-content img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .button-content span {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      #messenger-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 16px;
+      }
+
+      .button-content img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .button-content span {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #messenger-button {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px;
+      }
+
+      .button-content img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .button-content span {
+        font-size: 10px;
+      }
+    }
+  </style>
 
 </body>
 </html>
