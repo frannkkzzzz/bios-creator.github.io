@@ -3,18 +3,7 @@ layout: page
 title: Download Form | BiosCreator
 permalink: /download-form/
 ---
-<style>
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-         -webkit-appearance: none;
-          margin: 0;
-  }
-
-  input[type=number] {
-      -moz-appearance: textfield;
-  }
-</style>
-
+<link rel="stylesheet" href="/css/form.css">
 <section id="contact-form" onload="GetGeoInfo()">
   <div class="container">
     <div class="container" style="text-align:center; margin-bottom:50px;">
@@ -346,8 +335,8 @@ onload="if(submitted) {location.href = 'https://www.bioscreator.com/download/';}
 </div>
 <br>
 <br>
-
 </section>
+
 <!-- Facebook Messenger m.me Link as a Creative Fixed Button -->
 <a href="https://m.me/2749304591960661" target="_blank" id="messenger-button">
   <div class="button-content">
@@ -356,80 +345,6 @@ onload="if(submitted) {location.href = 'https://www.bioscreator.com/download/';}
   </div>
 </a>
 
-<style>
-  /* Fixed Positioning for the Button */
-  #messenger-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(45deg, #0078FF, #005BBB);
-    border-radius: 50px;
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    text-decoration: none;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1000; /* Ensure button is on top of other elements */
-  }
-
-  #messenger-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-  }
-
-  .button-content {
-    display: flex;
-    align-items: center;
-  }
-
-  .button-content img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-
-  .button-content span {
-    font-size: 14px;
-    font-weight: bold;
-  }
-
-  @media (max-width: 768px) {
-    #messenger-button {
-      bottom: 15px;
-      right: 15px;
-      padding: 8px 16px;
-    }
-
-    .button-content img {
-      width: 35px;
-      height: 35px;
-    }
-
-    .button-content span {
-      font-size: 12px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    #messenger-button {
-      bottom: 10px;
-      right: 10px;
-      padding: 6px 12px;
-    }
-
-    .button-content img {
-      width: 30px;
-      height: 30px;
-    }
-
-    .button-content span {
-      font-size: 10px;
-    }
-  }
-</style>
 <script>
   // fetch info from their ip address to spreadsheet using geogetinfo
 
